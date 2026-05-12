@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -16,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
     float jumpCooldown = 0.25f;
     float jumpTimer;
+
+    float stamina = 100f;
+    bool isRunning = false;
 
     [Header("Ground Drag")]
     public float playerHeight;
@@ -37,9 +41,18 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isRunning = true;
+        } else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isRunning = false;
+        }
+
         MyInput();
         ControlSpeed();
         Drag();
+        Run();
     }
 
     private void FixedUpdate()
@@ -90,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     private void ControlSpeed()
     {
         Vector3 horizontalVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-        if(horizontalVel.magnitude > moveSpeed)
+        if(horizontalVel.magnitude > moveSpeed && !isRunning)
         {
             Vector3 newVel = horizontalVel.normalized * moveSpeed;
             rb.linearVelocity = new Vector3(newVel.x, rb.linearVelocity.y, newVel.z);
@@ -101,6 +114,16 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.linearVelocity = new Vector3 (rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+    void Run()
+    {
+        if (isRunning && verticalInput > 0)
+        {
+            moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+            rb.linearVelocity = new Vector3(moveDirection.x * (moveSpeed + 3), rb.linearVelocity.y, moveDirection.z * (moveSpeed + 3));
+            Debug.Log("Running");
+        } 
     }
 
 
