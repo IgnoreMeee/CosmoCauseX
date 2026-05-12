@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         ControlSpeed();
         Drag();
         Run();
+        
     }
 
     private void FixedUpdate()
