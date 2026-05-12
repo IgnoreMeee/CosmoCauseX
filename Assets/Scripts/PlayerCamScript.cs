@@ -8,9 +8,11 @@ public class PlayerCamScript : MonoBehaviour
 
     public Transform orientation;
     public GameObject cameraPos;
+    public GameObject player;
 
     float xRotation;
     float yRotation;
+    bool mouseLocked = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,10 +27,23 @@ public class PlayerCamScript : MonoBehaviour
         MoveCamera();
         if (Input.GetKeyDown(KeyCode.E))
         {
-            UnlockMouse();
+            if (mouseLocked)
+            {
+                UnlockMouse();
+                mouseLocked = false;
+            }
+             else
+             {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                mouseLocked = true;
+             }
         }
 
         transform.position = cameraPos.transform.position;
+
+        player.transform.rotation = Quaternion.Euler(0f, yRotation, 0f);
+
     }
 
     void MoveCamera()

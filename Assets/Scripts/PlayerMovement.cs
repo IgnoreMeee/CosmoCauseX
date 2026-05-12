@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     
     public float jumpForce;
     public float airMultiplier;
+    float jumpCooldown = 0.25f;
+    float jumpTimer;
 
     [Header("Ground Drag")]
     public float playerHeight;
@@ -50,11 +52,14 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetKey(KeyCode.Space) && onGround)
+        if(Input.GetKey(KeyCode.Space) && onGround && jumpTimer >= jumpCooldown)
         {
             onGround = false;
+            jumpTimer = 0f;
             Jump();
         }
+
+        jumpTimer += Time.deltaTime;
     }
 
     private void MovePlayer()
