@@ -5,6 +5,7 @@ public class Astroid : MonoBehaviour
 {
     public GameObject Ass;
     public Rigidbody AssRb;
+    float asteroidSpawnDelay = 2f;
     GameObject[] asteroids = new GameObject[5];
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,8 +19,10 @@ public class Astroid : MonoBehaviour
         if (asteroids[0] == null && asteroids[1] == null && asteroids[2] == null && asteroids[3] == null && asteroids[4] == null)
         {
             SummonAsteroids();
-        }
+            StartCoroutine(SpawnAsteroid(asteroidSpawnDelay));
 
+        }
+        
         MoveAsteroids();
     }
 
@@ -27,11 +30,25 @@ public class Astroid : MonoBehaviour
     {
         for (int i = 0; i < asteroids.Length; i++)
         {
-            GameObject asteroid = Instantiate(Ass, new Vector3(Ass.transform.position.x, Ass.transform.position.y, Ass.transform.position.z - (i * 3)), Quaternion.identity);
+            float randomYShift = Random.Range(-1f, 2f);
+            float randomZShift = Random.Range(0f, 10f);
+           
+            GameObject asteroid = Instantiate(Ass, new Vector3(Ass.transform.position.x, Ass.transform.position.y + randomYShift, Ass.transform.position.z - randomZShift), Quaternion.identity);
             asteroids[i] = asteroid;
-            asteroids[i].SetActive(true);
         }
         
+    }
+
+    public IEnumerator SpawnAsteroid(float delay)
+    {
+        for (int i = 0; i < asteroids.Length; i++)
+        {
+            if (asteroids[i] == null) continue;
+            if (asteroids[i].activeSelf) continue;
+            yield return new WaitForSeconds(delay);
+            asteroids[i].SetActive(true);
+            
+        }
     }
 
     public void MoveAsteroids()
@@ -39,6 +56,8 @@ public class Astroid : MonoBehaviour
         for (int i = 0; i < asteroids.Length; i++)
         {
             if (asteroids[i] == null) continue;
+
+            if (asteroids[i].activeSelf) {
             
             if (asteroids[i].transform.position.x <= -22)
             {
@@ -46,6 +65,8 @@ public class Astroid : MonoBehaviour
             } else
             {
                 asteroids[i].GetComponent<Rigidbody>().linearVelocity = new Vector3(-10f, 0, 0);
+            }
+
             }
         }
 
