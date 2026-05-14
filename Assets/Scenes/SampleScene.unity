@@ -928,7 +928,6 @@ GameObject:
   - component: {fileID: 641458814}
   - component: {fileID: 641458813}
   - component: {fileID: 641458818}
-  - component: {fileID: 641458819}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1069,18 +1068,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &641458819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 641458812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b13bae84f8dd4c88ba96b8a245c0802, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Target
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
