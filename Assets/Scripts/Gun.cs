@@ -41,6 +41,7 @@ public class Gun : MonoBehaviour
         
         GameObject tracer = Instantiate(tracerPrefab, transform.position, Quaternion.identity);
         tracer.GetComponent<BulletTracer>().target = shootPoint;
+        SoundManager.Instance.PlaySFX(SoundManager.Instance.Shoot);
 
         
     }

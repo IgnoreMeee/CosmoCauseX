@@ -16,6 +16,7 @@ public class Play : MonoBehaviour
 
     public void PressStart()
     {
+        SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
         SceneManager.LoadScene("TheGame");
     }
 }
