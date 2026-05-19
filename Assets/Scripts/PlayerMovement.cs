@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Drag()
     {
-        onGround = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.1f, whatIsGround);
+        onGround = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         if (onGround)
         {
             rb.linearDamping = groundDrag;
