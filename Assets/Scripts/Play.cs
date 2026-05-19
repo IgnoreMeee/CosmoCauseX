@@ -19,4 +19,9 @@ public class Play : MonoBehaviour
         SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
         SceneManager.LoadScene("TheGame");
     }
+    public void Setting()
+    {
+        SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
+        SceneManager.LoadScene("SettingScreen");
+    }
 }
