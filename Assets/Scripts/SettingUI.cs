@@ -5,22 +5,38 @@ using UnityEngine.UI;
 
 public class SettingUI : MonoBehaviour
 {
-    public Slider masterVolume;
     public Slider UIVolume;
     public Slider SFXVolume;
 
+    public AudioSource uiSource;
+    public AudioSource sfxSource;
+
     void Start()
     {
-        masterVolume.onValueChanged.AddListener(delegate {ValueChangeCheck(); });
+        uiSource.volume = UIVolume.value;
+        sfxSource.volume = SFXVolume.value;
+        
+        UIVolume.onValueChanged.AddListener(delegate {ValueChange(); });
+        SFXVolume.onValueChanged.AddListener(delegate {ValueChange(); });
     }
 
     void ValueChangeCheck()
     {
-        Debug.Log (masterVolume.value);
+        
+        
+    }
+
+    void ValueChange()
+    {
+        Debug.Log (UIVolume.value);
+        uiSource.volume = UIVolume.value;
+
+        Debug.Log (SFXVolume.value);
+        sfxSource.volume = SFXVolume.value;
     }
      public void Back()
     {
         SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
-        SceneManager.LoadScene("TitleScreen");
+        SceneManager.LoadScene("Title Screen");
     }
 }

@@ -48,8 +48,8 @@ public class PlayerCamScript : MonoBehaviour
 
     void MoveCamera()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX * 35;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY * 35;
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX * 20;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY * 20;
 
         yRotation += mouseX;
         xRotation -= mouseY;

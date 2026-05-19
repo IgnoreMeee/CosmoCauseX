@@ -11,7 +11,7 @@ public class SoundManager : MonoBehaviour
     [Header("UI Sound")]
     public AudioClip ButtonClick;
 
-    [Header("Game Sound")]
+    [Header("SFX Sound")]
     public AudioClip Shoot;
     
 
