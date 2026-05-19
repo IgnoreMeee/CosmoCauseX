@@ -8,16 +8,14 @@ public class SettingUI : MonoBehaviour
     public Slider UIVolume;
     public Slider SFXVolume;
 
-    public AudioSource uiSource;
-    public AudioSource sfxSource;
 
     void Start()
     {
-        uiSource.volume = UIVolume.value;
-        sfxSource.volume = SFXVolume.value;
+        SoundManager.Instance.uiSource.volume = UIVolume.value;
+        SoundManager.Instance.sfxSource.volume = SFXVolume.value;
         
-        UIVolume.onValueChanged.AddListener(delegate {ValueChange(); });
-        SFXVolume.onValueChanged.AddListener(delegate {ValueChange(); });
+        UIVolume.onValueChanged.AddListener(SetUIVolume);
+        SFXVolume.onValueChanged.AddListener(SetUIVolume);
     }
 
     void ValueChangeCheck()
@@ -26,14 +24,17 @@ public class SettingUI : MonoBehaviour
         
     }
 
-    void ValueChange()
+    private void SetUIVolume(float volume)
     {
-        Debug.Log (UIVolume.value);
-        uiSource.volume = UIVolume.value;
-
-        Debug.Log (SFXVolume.value);
-        sfxSource.volume = SFXVolume.value;
+        SoundManager.Instance.uiSource.volume = volume;
     }
+
+    private void SetSFXVolume(float volume)
+    {
+        SoundManager.Instance.sfxSource.volume = volume;
+    }
+
+   
      public void Back()
     {
         SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
