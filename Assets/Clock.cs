@@ -28,7 +28,7 @@ public class Clock : MonoBehaviour
         {
             prevTime = (int)Math.Floor(Time.time);
             seconds++;
-            Debug.Log(seconds);
+            //Debug.Log(seconds);
         }
     }
 
