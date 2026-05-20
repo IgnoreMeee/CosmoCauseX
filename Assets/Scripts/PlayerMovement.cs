@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public float playerHeight;
     public LayerMask whatIsGround;
     bool onGround;
+    public bool canMove = true;
 
 
     Vector3 moveDirection;
@@ -40,6 +41,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (!canMove) return;
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -58,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canMove) return;
+
         MovePlayer();
     }
 
