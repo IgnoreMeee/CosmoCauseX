@@ -19,12 +19,12 @@ public class ControlBoard : MonoBehaviour
             movement.canMove = false;
             player.transform.position = transform.position + new Vector3(0, 0.6f, 0);
             gun.SetActive(true);
-            
+
         } else if (Input.GetKeyDown(KeyCode.F) && !movement.canMove)
         {
             movement.canMove = true;
             player.transform.position = transform.position + Vector3.left;
-            gun.SetActive(true);
+            gun.SetActive(false);
         }
 
     }
