@@ -1,11 +1,15 @@
-using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
 
+    public Button Resume;
+    public Button Settings;
+    public Button Exit;
     public float groundDrag;
+    public bool paused = false;
 
     [Header("Movement")]
     public float moveSpeed;
@@ -40,6 +44,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.C)) Pause();
+
+        if (paused)
+        {
+            return;
+        }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -53,11 +63,16 @@ public class PlayerMovement : MonoBehaviour
         ControlSpeed();
         Drag();
         Run();
-        
+
     }
 
     private void FixedUpdate()
     {
+        if (paused)
+        {
+            return;
+        }
+
         MovePlayer();
     }
 
@@ -90,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Drag()
     {
-        onGround = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.1f, whatIsGround);
+        onGround = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         if (onGround)
         {
             rb.linearDamping = groundDrag;
@@ -123,8 +138,42 @@ public class PlayerMovement : MonoBehaviour
         {
             moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
             rb.linearVelocity = new Vector3(moveDirection.x * (moveSpeed + 3), rb.linearVelocity.y, moveDirection.z * (moveSpeed + 3));
-            Debug.Log("Running");
         } 
+    }
+
+    private void Pause()
+    {
+        if (paused)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = true;
+
+            Resume.gameObject.SetActive(false);
+            Settings.gameObject.SetActive(false);
+            Exit.gameObject.SetActive(false);
+
+            paused = false;
+            Time.timeScale = 1f;
+
+        } else
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            Resume.gameObject.SetActive(true);
+            Settings.gameObject.SetActive(true);
+            Exit.gameObject.SetActive(true);
+
+            paused = true;
+            Time.timeScale = 0f;
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+    }
+
+    void PauseMenu()
+    {
+        
     }
 
 
