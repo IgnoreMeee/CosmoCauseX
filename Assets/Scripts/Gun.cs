@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public PlayerMovement player;
     float damage = 10f;
     float range = 100f; 
     Vector3 shootPoint;
@@ -11,6 +12,7 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
+        if (player.paused) return;
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
