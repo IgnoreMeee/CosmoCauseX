@@ -16,8 +16,8 @@ public class SettingUI : MonoBehaviour
         SoundManager.Instance.uiSource.volume = SaveData.Instance.info.UIVolume;
         SoundManager.Instance.sfxSource.volume = SaveData.Instance.info.SFXVolume;
 
-        // UISlider.value = SoundManager.Instance.uiSource.volume;
-        // SFXSlider.value = SoundManager.Instance.sfxSource.volume;
+        UISlider.value = SoundManager.Instance.uiSource.volume;
+        SFXSlider.value = SoundManager.Instance.sfxSource.volume;
         
         UISlider.onValueChanged.AddListener(SetUIVolume);
         SFXSlider.onValueChanged.AddListener(SetSFXVolume);
