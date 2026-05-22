@@ -341,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc8372323a628840977a3c16825de6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  leftDoorClosed: 0
+  leftDoorClosed: 1
   rightDoorClosed: 0
 --- !u!4 &70632526
 Transform:
@@ -495,54 +495,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 151408627}
   m_CullTransparentMesh: 1
---- !u!1 &187536844
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 187536846}
-  - component: {fileID: 187536845}
-  m_Layer: 0
-  m_Name: Animatronic1Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &187536845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187536844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eafa64535d5d524db5a4cb9d9f06121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  clock: {fileID: 512230314}
-  doorControl: {fileID: 70632525}
-  locationIndex: 0
-  location: 6
---- !u!4 &187536846
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 187536844}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1507.9906, y: -0.00003, z: 1762.0076}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &199154605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,6 +1761,7 @@ GameObject:
   - component: {fileID: 560077912}
   - component: {fileID: 560077911}
   - component: {fileID: 560077910}
+  - component: {fileID: 560077914}
   m_Layer: 0
   m_Name: Animatronic1
   m_TagString: Untagged
@@ -1903,12 +1856,29 @@ Transform:
   m_GameObject: {fileID: 560077909}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.11, y: 65.3896, z: 97.97}
+  m_LocalPosition: {x: -72.39, y: 65.3896, z: 84.07}
   m_LocalScale: {x: 1.8891562, y: 5.256447, z: 2.0152547}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &560077914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560077909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eafa64535d5d524db5a4cb9d9f06121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FreddyController
+  clock: {fileID: 512230314}
+  doorControl: {fileID: 70632525}
+  animatronic: {fileID: 0}
+  locationIndex: 0
+  location: 6
 --- !u!1 &563060605
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,8 +2732,8 @@ Transform:
   m_GameObject: {fileID: 979566267}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -84.1644, y: 61.7, z: 108.7222}
-  m_LocalScale: {x: 30.841705, y: 2.320248, z: 21.618109}
+  m_LocalPosition: {x: -90.3944, y: 61.7, z: 108.7222}
+  m_LocalScale: {x: 43.30029, y: 2.320248, z: 21.618109}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1575581253}
@@ -4701,7 +4671,7 @@ Transform:
   m_GameObject: {fileID: 1820482797}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -95.7772, y: 61.7, z: 80.3506}
+  m_LocalPosition: {x: -108.2, y: 61.7, z: 80.3506}
   m_LocalScale: {x: 7.713558, y: 2.320248, z: 36.195095}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5413,7 +5383,6 @@ SceneRoots:
   - {fileID: 1511488058902215012}
   - {fileID: 1342901529}
   - {fileID: 512230315}
-  - {fileID: 187536846}
   - {fileID: 70632526}
   - {fileID: 1575581253}
   - {fileID: 560077913}
