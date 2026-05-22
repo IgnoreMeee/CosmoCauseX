@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        paused = false;
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
