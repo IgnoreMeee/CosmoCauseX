@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
     public float playerHeight;
     public LayerMask whatIsGround;
     bool onGround;
-    public bool canMove = true;
 
 
     Vector3 moveDirection;
@@ -40,14 +39,11 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        paused = false;
-        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!canMove) return;
         if (Input.GetKeyDown(KeyCode.C)) Pause();
 
         if (paused)
@@ -72,10 +68,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!canMove) return;
-
-        if (paused) return;
-        
+        if (paused)
+        {
+            return;
+        }
 
         MovePlayer();
     }

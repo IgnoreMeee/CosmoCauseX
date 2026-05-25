@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Play : MonoBehaviour
 {
-    SceneTracker scene;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         SaveData.Instance.LoadJson();
         scene = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
         scene.currentScene = SceneManager.GetActiveScene().name;

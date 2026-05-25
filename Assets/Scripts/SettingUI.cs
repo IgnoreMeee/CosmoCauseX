@@ -9,9 +9,17 @@ public class SettingUI : MonoBehaviour
     public Slider UISlider, SFXSlider;
     
     SceneTracker scene;
+    public Slider UIVolume;
+    public Slider SFXVolume;
+
 
     void Start()
     {
+        SoundManager.Instance.uiSource.volume = UIVolume.value;
+        SoundManager.Instance.sfxSource.volume = SFXVolume.value;
+        
+        UIVolume.onValueChanged.AddListener(SetUIVolume);
+        SFXVolume.onValueChanged.AddListener(SetUIVolume);
         UISlider.value = SoundManager.Instance.uiSource.volume;
         SFXSlider.value = SoundManager.Instance.sfxSource.volume;
 
@@ -34,23 +42,21 @@ public class SettingUI : MonoBehaviour
         
     }
 
-    public void SetUIVolume(float volume)
+    private void SetUIVolume(float volume)
     {
         SoundManager.Instance.uiSource.volume = volume;
-        SaveData.Instance.info.UIVolume = volume;
     }
 
-    public void SetSFXVolume(float volume)
+    private void SetSFXVolume(float volume)
     {
         SoundManager.Instance.sfxSource.volume = volume;
-        SaveData.Instance.info.SFXVolume = volume;
     }
 
    
      public void Back()
     {
         SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
-        SceneManager.LoadScene(scene.currentScene);
+        SceneManager.LoadScene("Title Screen");
     }
 }
 //a
