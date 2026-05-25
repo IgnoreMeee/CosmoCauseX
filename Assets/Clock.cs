@@ -5,13 +5,11 @@ using UnityEngine.SceneManagement;
 public class Clock : MonoBehaviour
 {
     public event Action UpdateTime;
-    public PointSystem point;
 
     public int seconds = 0;
     int prevTime = 0;
     string[] hours = {"12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM"};
     public string hour;
-    int lastPointSecond = -1;
 
     void Start()
     {
@@ -20,12 +18,8 @@ public class Clock : MonoBehaviour
 
     void Update()
     {
-        
-        Timer();
-
-        AddPoints();
-
         UpdateTimeGUI();
+        Timer();
     }
 
     void Timer()
@@ -40,7 +34,6 @@ public class Clock : MonoBehaviour
 
     void UpdateTimeGUI()
     {
-        
         switch (seconds)
         {
             case >= 0 and < 60:
@@ -68,14 +61,6 @@ public class Clock : MonoBehaviour
         }
     }
 
-    void AddPoints()
-    {
-        if (seconds % 60 == 0 && seconds != 0 && seconds != lastPointSecond)
-        {
-            lastPointSecond = seconds;
-            point.point += 10;
-        }
-    }
     void IncreaseTime()
     {
         if (Time.time > prevTime)
