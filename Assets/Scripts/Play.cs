@@ -6,6 +6,9 @@ public class Play : MonoBehaviour
     void Start()
     {
         
+        SaveData.Instance.LoadJson();
+        scene = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
+        scene.currentScene = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
@@ -25,3 +28,4 @@ public class Play : MonoBehaviour
         SceneManager.LoadScene("SettingScreen");
     }
 }
+

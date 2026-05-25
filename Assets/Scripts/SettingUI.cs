@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class SettingUI : MonoBehaviour
 {
+    
+    public Slider UISlider, SFXSlider;
+    
+    SceneTracker scene;
     public Slider UIVolume;
     public Slider SFXVolume;
 
@@ -16,6 +20,20 @@ public class SettingUI : MonoBehaviour
         
         UIVolume.onValueChanged.AddListener(SetUIVolume);
         SFXVolume.onValueChanged.AddListener(SetUIVolume);
+        UISlider.value = SoundManager.Instance.uiSource.volume;
+        SFXSlider.value = SoundManager.Instance.sfxSource.volume;
+
+        SoundManager.Instance.uiSource.volume = SaveData.Instance.info.UIVolume;
+        SoundManager.Instance.sfxSource.volume = SaveData.Instance.info.SFXVolume;
+
+        UISlider.value = SoundManager.Instance.uiSource.volume;
+        SFXSlider.value = SoundManager.Instance.sfxSource.volume;
+        
+        UISlider.onValueChanged.AddListener(SetUIVolume);
+        SFXSlider.onValueChanged.AddListener(SetSFXVolume);
+    
+
+        scene = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
     }
 
     void ValueChangeCheck()
@@ -41,3 +59,4 @@ public class SettingUI : MonoBehaviour
         SceneManager.LoadScene("Title Screen");
     }
 }
+//a
