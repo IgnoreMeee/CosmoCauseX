@@ -5,17 +5,11 @@ using UnityEngine.UI;
 
 public class SettingUI : MonoBehaviour
 {
-<<<<<<< Updated upstream
     
     public Slider UISlider, SFXSlider;
     
-=======
     SceneTracker scene;
-    public Slider UIVolume;
-    public Slider SFXVolume;
 
-
->>>>>>> Stashed changes
     void Start()
     {
         UISlider.value = SoundManager.Instance.uiSource.volume;
@@ -27,15 +21,11 @@ public class SettingUI : MonoBehaviour
         UISlider.value = SoundManager.Instance.uiSource.volume;
         SFXSlider.value = SoundManager.Instance.sfxSource.volume;
         
-<<<<<<< Updated upstream
         UISlider.onValueChanged.AddListener(SetUIVolume);
         SFXSlider.onValueChanged.AddListener(SetSFXVolume);
-=======
-        UIVolume.onValueChanged.AddListener(SetUIVolume);
-        SFXVolume.onValueChanged.AddListener(SetUIVolume);
+    
 
         scene = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
->>>>>>> Stashed changes
     }
 
     void ValueChangeCheck()
@@ -63,3 +53,4 @@ public class SettingUI : MonoBehaviour
         SceneManager.LoadScene(scene.currentScene);
     }
 }
+//a
