@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Play : MonoBehaviour
+
+public class Winscreen : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     // Update is called once per frame
@@ -14,14 +16,16 @@ public class Play : MonoBehaviour
         
     }
 
-    public void PressStart()
+
+    public void PlayAgain()
     {
         SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
         SceneManager.LoadScene("TheGame");
     }
-    public void Setting()
+
+    public void ReturntoMenu()
     {
         SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
-        SceneManager.LoadScene("SettingScreen");
+        SceneManager.LoadScene("Title Screen");
     }
 }
