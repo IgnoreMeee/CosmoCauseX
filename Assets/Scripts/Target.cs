@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    float health = 20f;
+    float health = 30f;
 
     public void TakeDamage(float amt)
     {

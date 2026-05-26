@@ -5,27 +5,17 @@ using UnityEngine.UI;
 
 public class SettingUI : MonoBehaviour
 {
-    
-    public Slider UISlider, SFXSlider;
-    
-    SceneTracker scene;
+    public Slider UIVolume;
+    public Slider SFXVolume;
+
 
     void Start()
     {
-        UISlider.value = SoundManager.Instance.uiSource.volume;
-        SFXSlider.value = SoundManager.Instance.sfxSource.volume;
-
-        SoundManager.Instance.uiSource.volume = SaveData.Instance.info.UIVolume;
-        SoundManager.Instance.sfxSource.volume = SaveData.Instance.info.SFXVolume;
-
-        UISlider.value = SoundManager.Instance.uiSource.volume;
-        SFXSlider.value = SoundManager.Instance.sfxSource.volume;
+        SoundManager.Instance.uiSource.volume = UIVolume.value;
+        SoundManager.Instance.sfxSource.volume = SFXVolume.value;
         
-        UISlider.onValueChanged.AddListener(SetUIVolume);
-        SFXSlider.onValueChanged.AddListener(SetSFXVolume);
-    
-
-        scene = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
+        UIVolume.onValueChanged.AddListener(SetUIVolume);
+        SFXVolume.onValueChanged.AddListener(SetUIVolume);
     }
 
     void ValueChangeCheck()
@@ -34,23 +24,20 @@ public class SettingUI : MonoBehaviour
         
     }
 
-    public void SetUIVolume(float volume)
+    private void SetUIVolume(float volume)
     {
         SoundManager.Instance.uiSource.volume = volume;
-        SaveData.Instance.info.UIVolume = volume;
     }
 
-    public void SetSFXVolume(float volume)
+    private void SetSFXVolume(float volume)
     {
         SoundManager.Instance.sfxSource.volume = volume;
-        SaveData.Instance.info.SFXVolume = volume;
     }
 
    
      public void Back()
     {
         SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
-        SceneManager.LoadScene(scene.currentScene);
+        SceneManager.LoadScene("Title Screen");
     }
 }
-//a
