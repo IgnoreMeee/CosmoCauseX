@@ -1363,10 +1363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8736dbb298dac47d89bda6f1b5c1cd81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingUI
-  UIVolume: {fileID: 319692026}
-  SFXVolume: {fileID: 887826786}
-  uiSource: {fileID: 141545236}
-  sfxSource: {fileID: 353107663}
+  UISlider: {fileID: 319692026}
+  SFXSlider: {fileID: 887826786}
 --- !u!4 &1129254260
 Transform:
   m_ObjectHideFlags: 0
