@@ -7,6 +7,7 @@ public class SettingUI : MonoBehaviour
 {
     public Slider UIVolume;
     public Slider SFXVolume;
+    SceneTracker scene;
 
 
     void Start()
@@ -16,6 +17,8 @@ public class SettingUI : MonoBehaviour
         
         UIVolume.onValueChanged.AddListener(SetUIVolume);
         SFXVolume.onValueChanged.AddListener(SetUIVolume);
+
+        scene = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
     }
 
     void ValueChangeCheck()
@@ -38,6 +41,6 @@ public class SettingUI : MonoBehaviour
      public void Back()
     {
         SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
-        SceneManager.LoadScene("Title Screen");
+        SceneManager.LoadScene(scene.currentScene);
     }
 }

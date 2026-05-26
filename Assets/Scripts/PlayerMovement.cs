@@ -1,10 +1,11 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    SceneTracker scene;
     public Button Resume;
     public Button Settings;
     public Button Exit;
@@ -39,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        scene = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
+        scene.currentScene = SceneManager.GetActiveScene().name;
     }
 
     // Update is called once per frame
