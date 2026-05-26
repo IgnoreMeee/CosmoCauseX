@@ -1686,8 +1686,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1945f997a23464da61e9c10562a2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clock
-  point: {fileID: 981396491}
-  seconds: 0
+  point: {fileID: 0}
+  seconds: 50
   hour: 
 --- !u!4 &512230315
 Transform:

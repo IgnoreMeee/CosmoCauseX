@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Linq;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class Astroid : MonoBehaviour
@@ -6,23 +8,25 @@ public class Astroid : MonoBehaviour
     public GameObject Ass;
     public Rigidbody AssRb;
     float asteroidSpawnDelay = 2f;
-    GameObject[] asteroids = new GameObject[5];
+    Clock clock;
+    string prevHour = "12 AM";
+    GameObject[] asteroids = new GameObject[10];
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        clock = GameObject.Find("Clock").GetComponent<Clock>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (asteroids[0] == null && asteroids[1] == null && asteroids[2] == null && asteroids[3] == null && asteroids[4] == null)
-        {
+        if (clock.hour != prevHour) {
+    
             SummonAsteroids();
             StartCoroutine(SpawnAsteroid(asteroidSpawnDelay));
-
-        }
         
+        prevHour = clock.hour;
+        }
         MoveAsteroids();
     }
 
