@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Button Exit;
     public float groundDrag;
     public bool paused = false;
+    
 
     [Header("Movement")]
     public float moveSpeed;
@@ -31,10 +32,15 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsGround;
     bool onGround;
     public bool canMove = true;
-
-
     Vector3 moveDirection;
     public Rigidbody rb;
+
+
+
+    [Header("Shop Menu")]
+    public Canvas shop;
+    public bool shopping = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,15 +55,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (shopping) return;
         if(!canMove) return;
 
         if (Input.GetKeyDown(KeyCode.C)) Pause();
 
-        if (paused)
-        {
-            return;
-        }
+        if (paused) return;
         
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -77,11 +80,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (shopping) return;
         if(!canMove) return;
-        if (paused)
-        {
-            return;
-        }
+        if (paused) return;
 
         MovePlayer();
     }
@@ -156,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
         if (paused)
         {
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = true;
+            Cursor.visible = false;
 
             Resume.gameObject.SetActive(false);
             Settings.gameObject.SetActive(false);
@@ -181,10 +182,31 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void PauseMenu()
+
+    public void OpenShop()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        shop.gameObject.SetActive(true);
+
+        shopping = true;
+        Time.timeScale = 0f;
+
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 
+    public void CloseShop()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
+        shop.gameObject.SetActive(false);
+
+        shopping = false;
+        Time.timeScale = 1f;
+    }
+
+    
 }
