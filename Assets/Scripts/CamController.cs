@@ -27,7 +27,7 @@ public class CamController : MonoBehaviour
 
     void SwapCams()
     {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (currentCam == cam1)
             {
