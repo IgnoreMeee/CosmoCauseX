@@ -29,6 +29,6 @@ public class SceneTracker : MonoBehaviour
 
     void UpdateScene()
     {
-        currentScene = SceneManager.GetActiveScene().name;
+        //currentScene = SceneManager.GetActiveScene().name;
     }
 }

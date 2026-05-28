@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class difficultycontroller : MonoBehaviour
 {
+    public static difficultycontroller instance;
     public int animatronic1difficulty = 0;
     public int animatronic2difficulty = 0;
     public int animatronic3difficulty = 0;
@@ -9,10 +10,23 @@ public class difficultycontroller : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    void Awake()
+    {
+        if(instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         
     }
+
+    
 
     // Update is called once per frame
     void Update()
