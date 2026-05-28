@@ -1768,7 +1768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clock
   point: {fileID: 0}
-  seconds: 50
+  seconds: 0
   hour: 
 --- !u!4 &512230315
 Transform:
@@ -4479,6 +4479,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 65702495048144492, guid: 252cbb8a33d31fd4dbf81d7b35c6139d, type: 3}
+    - {fileID: 6014503084441653313, guid: 252cbb8a33d31fd4dbf81d7b35c6139d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1152358595829718374, guid: 252cbb8a33d31fd4dbf81d7b35c6139d, type: 3}

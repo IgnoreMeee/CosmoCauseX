@@ -8,7 +8,7 @@ public class Play : MonoBehaviour
     {
         SaveData.Instance.LoadJson();
         scene = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
-        scene.currentScene = SceneManager.GetActiveScene().name;
+        
 
     }
 

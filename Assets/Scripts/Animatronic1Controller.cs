@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Numerics;
 using JetBrains.Annotations;
+using UnityEngine.Rendering;
 
 public class FreddyController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class FreddyController : MonoBehaviour
     public GameObject animatronic;
     //public jumpscareController jumpscareControl;
 
+    difficultycontroller a1;
     public event Action freddyJumpscare;
     UnityEngine.Vector3 currentPos;
 
@@ -22,7 +24,7 @@ public class FreddyController : MonoBehaviour
     
     public int location = 6;
     int prevTime = 0;
-    int timePerChance = 7;
+    int timePerChance;
 
     int timeSinceJumpscare = 100000;
 
@@ -35,6 +37,8 @@ public class FreddyController : MonoBehaviour
         clock = clock.GetComponent<Clock>();
         currentPos = transform.position;
         transform.position = new UnityEngine.Vector3(-5.92f, currentPos.y, 97.23f); 
+        a1 = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>(); 
+        timePerChance = 23 - a1.animatronic1difficulty;
         
         //cameraControl = cameraControl.GetComponent<CameraControl>();
         //doorControl = doorControl.GetComponent<DoorControl>();
@@ -55,8 +59,9 @@ public class FreddyController : MonoBehaviour
         if (clock.seconds == prevTime + timePerChance)
         {
             prevTime = clock.seconds;
-            
-            if (UnityEngine.Random.Range(1, 2) == 1)
+
+
+            if (UnityEngine.Random.Range(1, 3) == 1)
             {
                 Move();
                 Debug.Log("Index: " + locationIndex);
