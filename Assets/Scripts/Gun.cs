@@ -3,8 +3,8 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public PlayerMovement player;
-    float damage = 10f;
-    float range = 100f; 
+    public float damage = 10f;
+    public float range = 100f; 
     Vector3 shootPoint;
 
     public Camera ourCam;
