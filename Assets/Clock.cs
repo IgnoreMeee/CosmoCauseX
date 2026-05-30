@@ -6,6 +6,7 @@ public class Clock : MonoBehaviour
 {
     public event Action UpdateTime;
     public PointSystem point;
+    public PlayerMovement player;
     public int seconds = 0;
     int prevTime = 0;
     string[] hours = {"12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM"};
@@ -72,6 +73,7 @@ public class Clock : MonoBehaviour
         {
             lastPointSecond = seconds;
             point.point += 10;
+            player.OpenShop();
         }
     }
     void IncreaseTime()
