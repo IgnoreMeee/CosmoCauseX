@@ -120,10 +120,14 @@ public class PlayerMovement : MonoBehaviour
         if (onGround)
         {
             rb.linearDamping = groundDrag;
+            Debug.Log("youre on the fucking ground");
+
+            
         } else
         {
             rb.linearDamping = 0f;
             onGround = false;
+            Debug.Log("youre not on the fucking ground");
         }
     }
 
