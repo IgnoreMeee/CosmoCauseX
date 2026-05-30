@@ -6,6 +6,7 @@ using UnityEngine;
 public class Astroid : MonoBehaviour
 {
     public GameObject Ass;
+    public GameObject meteortrail;
     public Rigidbody AssRb;
     float asteroidSpawnDelay = 2f;
     Clock clock;
@@ -36,8 +37,15 @@ public class Astroid : MonoBehaviour
         {
             float randomYShift = Random.Range(-1f, 2f);
             float randomZShift = Random.Range(0f, 10f);
+
+            float AssY = Ass.transform.position.y + randomYShift;
+            float AssZ = Ass.transform.position.z + randomZShift;
            
             GameObject asteroid = Instantiate(Ass, new Vector3(Ass.transform.position.x, Ass.transform.position.y + randomYShift, Ass.transform.position.z - randomZShift), Quaternion.identity);
+            GameObject meteor = Instantiate(meteortrail, new Vector3(Ass.transform.position.x, Ass.transform.position.y + randomYShift, Ass.transform.position.z - randomZShift), Quaternion.identity);
+            meteor.transform.eulerAngles = new Vector3(0, 90, 0);
+            
+            meteor.transform.SetParent(asteroid.transform);
             asteroids[i] = asteroid;
         }
         
