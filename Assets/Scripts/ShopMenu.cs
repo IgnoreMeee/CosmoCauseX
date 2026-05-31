@@ -10,6 +10,7 @@ public class ShopMenu : MonoBehaviour
 
     public PlayerMovement x;
     public PointSystem points;
+    public GunSwitching gun;
     public Button Gun1;
     public Button Gun2;
     [SerializeField] TMP_Text pointText;
@@ -33,6 +34,8 @@ public class ShopMenu : MonoBehaviour
             Debug.Log("equiped");
             points.point -=100;
             Gun1.interactable = false;
+            gun.OwnGun1 = true;
+
         } else {
         Debug.Log("I can't get this im broke");
         }
@@ -45,6 +48,7 @@ public class ShopMenu : MonoBehaviour
             Debug.Log("equiped");
             points.point -=150;
             Gun2.interactable = false;
+            gun.OwnGun2 = true;
 
         } else {
         Debug.Log("I can't get this im broke");
