@@ -4,6 +4,10 @@ public class PlayerController : MonoBehaviour
 {
     public Camera ourCam;
     public GameObject DoorButtonLeft;
+    public GameObject DoorButtonRight;
+    public GameObject VentButtonLeft;
+    public GameObject VentButtonRight;
+
     Ray ray;
     RaycastHit hit;
     public Collider colliderToHit;
@@ -24,36 +28,40 @@ public class PlayerController : MonoBehaviour
     
     }
 
+    //checks if the ray is otouching a gameobejct
+
     public void Touch()
     {
-        //checks if touching a gameobejct
-
         if (Input.GetMouseButtonDown(0))
         {
             if (Physics.Raycast(ray, out hit, 3f))
             {
                 if (hit.collider.gameObject == DoorButtonLeft)
                 {
-                    Debug.Log("I JUST HIT THE JACKPOT!!!");
-
                     GameObject DoorController = GameObject.Find("DoorController");
                     doorcontroller Doorcontroller = DoorController.GetComponent<doorcontroller>();
                     Doorcontroller.buttonID = 1;
                 }
                 
-                if (hit.collider.gameObject == DoorButtonLeft)
+                if (hit.collider.gameObject == DoorButtonRight)
                 {
-                    
+                    GameObject DoorController = GameObject.Find("DoorController");
+                    doorcontroller Doorcontroller = DoorController.GetComponent<doorcontroller>();
+                    Doorcontroller.buttonID = 2;
                 }
 
-                if (hit.collider.gameObject == DoorButtonLeft)
+                if (hit.collider.gameObject == VentButtonLeft)
                 {
-                    
+                    GameObject DoorController = GameObject.Find("DoorController");
+                    doorcontroller Doorcontroller = DoorController.GetComponent<doorcontroller>();
+                    Doorcontroller.buttonID = 3;
                 }
 
-                if (hit.collider.gameObject == DoorButtonLeft)
+                if (hit.collider.gameObject == VentButtonRight)
                 {
-                    
+                    GameObject DoorController = GameObject.Find("DoorController");
+                    doorcontroller Doorcontroller = DoorController.GetComponent<doorcontroller>();
+                    Doorcontroller.buttonID = 4;
                 }
                
             }
