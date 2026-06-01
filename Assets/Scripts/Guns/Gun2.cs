@@ -3,7 +3,8 @@ using UnityEngine;
 public class Gun2 : MonoBehaviour
 {
     public PlayerMovement player;
-    public GameObject effect;
+    public GameObject effect2;
+    ParticleSystem muzzleFlash;
     public float damage = 50f;
     public float range = 120f; 
     Vector3 shootPoint;
@@ -21,7 +22,7 @@ public class Gun2 : MonoBehaviour
 
     public void Shoot()
     {
-        
+        // muzzleFlash.Play();
         RaycastHit hit;
         //generate a new tracer
         
@@ -44,7 +45,7 @@ public class Gun2 : MonoBehaviour
         
         // SoundManager.Instance.PlaySFX(SoundManager.Instance.Shoot);
 
-        GameObject gun2Impact = Instantiate(effect, hit.point, Quaternion.LookRotation(hit.normal));
+        GameObject gun2Impact = Instantiate(effect2, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(gun2Impact, 2f);
         
     }
