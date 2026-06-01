@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneTracker : MonoBehaviour
 {
     public static SceneTracker instance;
-    public String currentScene;
+    public string currentScene;
     void Awake() {
         if (instance != null) {
             Destroy(gameObject);
@@ -29,6 +29,6 @@ public class SceneTracker : MonoBehaviour
 
     void UpdateScene()
     {
-        currentScene = SceneManager.GetActiveScene().name;
+        //currentScene = SceneManager.GetActiveScene().name;
     }
 }

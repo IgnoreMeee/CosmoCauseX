@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/6AM.unity
     guid: 03ac710990939834c8804cd279b37655
+  - enabled: 1
+    path: Assets/Scenes/Difficulty.unity
+    guid: 28763b7b29e8045b4be3dd45a025f80a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
