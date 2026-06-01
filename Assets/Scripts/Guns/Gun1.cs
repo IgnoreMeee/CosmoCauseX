@@ -1,16 +1,15 @@
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class Gun1 : MonoBehaviour
 {
     public PlayerMovement player;
-    public ParticleSystem muzzleFlash;
-    public float damage = 10f;
-    public float range = 100f; 
+    public Transform gun1;
+    public float damage = 50f;
+    public float range = 120f; 
     Vector3 shootPoint;
 
-
     public Camera ourCam;
-    // public GameObject tracerPrefab;
+    public GameObject tracerPrefab;
 
     void Update()
     {
@@ -23,7 +22,7 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        muzzleFlash.Play();
+        
         RaycastHit hit;
         //generate a new tracer
         
@@ -44,8 +43,11 @@ public class Gun : MonoBehaviour
                     + ourCam.transform.forward * range;
         }
         
-        // GameObject tracer = Instantiate(tracerPrefab, transform.position, Quaternion.identity);
-        // tracer.GetComponent<BulletTracer>().target = shootPoint;
+        GameObject tracer = 
+        Instantiate(tracerPrefab, 
+        gun1.position + gun1.forward * 0.2f + gun1.up * 0.1f, 
+        Quaternion.identity);
+        tracer.GetComponent<BulletTracer>().target = shootPoint;
         // SoundManager.Instance.PlaySFX(SoundManager.Instance.Shoot);
 
         

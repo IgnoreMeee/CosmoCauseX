@@ -1457,7 +1457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &326992991
 Transform:
   m_ObjectHideFlags: 0
@@ -2289,6 +2289,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1342901529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &403518609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6593981005380804085, guid: bceefb2a39f6db74d9bc9d006687b7f1, type: 3}
+  m_PrefabInstance: {fileID: 894769866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,6 +2527,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &440058929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7764270004939205477, guid: 7b488e93de0cc4268800c858d62d42ba, type: 3}
+  m_PrefabInstance: {fileID: 3938465035605511530}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &450627951
 GameObject:
   m_ObjectHideFlags: 0
@@ -6349,6 +6359,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4010709412559476276, guid: 7b488e93de0cc4268800c858d62d42ba, type: 3}
   m_PrefabInstance: {fileID: 3938465035605511530}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1304385659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440058929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5288929541d424fba818084dcec2da04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gun1
+  player: {fileID: 953440033}
+  gun1: {fileID: 1304385655}
+  damage: 50
+  range: 120
+  ourCam: {fileID: 330585545}
+  tracerPrefab: {fileID: 5702665967513097836, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
 --- !u!1 &1342901526
 GameObject:
   m_ObjectHideFlags: 0
@@ -6479,7 +6507,7 @@ MonoBehaviour:
   uiSource: {fileID: 402207855}
   sfxSource: {fileID: 1041173517}
   ButtonClick: {fileID: 8300000, guid: df99823c398fe4f00835682a6b9f5217, type: 3}
-  Shoot: {fileID: 8300000, guid: e730f0ecb16b04923b06a11d51d36132, type: 3}
+  Shoot: {fileID: 8300000, guid: c703fe14f1aa044ce9c7fccc72b475ff, type: 3}
 --- !u!4 &1342901529
 Transform:
   m_ObjectHideFlags: 0
@@ -6660,6 +6688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gun
   player: {fileID: 953440033}
   muzzleFlash: {fileID: 1758743710}
+  effect: {fileID: 403518609}
   damage: 10
   range: 100
   ourCam: {fileID: 330585545}
@@ -9219,6 +9248,10 @@ PrefabInstance:
       propertyPath: muzzleFlash
       value: 
       objectReference: {fileID: 1758743710}
+    - target: {fileID: 837566295083024348, guid: 7b488e93de0cc4268800c858d62d42ba, type: 3}
+      propertyPath: tracerPrefab
+      value: 
+      objectReference: {fileID: 5702665967513097836, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
     - target: {fileID: 4010709412559476276, guid: 7b488e93de0cc4268800c858d62d42ba, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.16086102
@@ -9267,10 +9300,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 837566295083024348, guid: 7b488e93de0cc4268800c858d62d42ba, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7764270004939205477, guid: 7b488e93de0cc4268800c858d62d42ba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1304385659}
   m_SourcePrefab: {fileID: 100100000, guid: 7b488e93de0cc4268800c858d62d42ba, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
