@@ -79,6 +79,7 @@ public class Astroid : MonoBehaviour
                 asteroids[i].GetComponent<Rigidbody>().linearVelocity = new Vector3(-10f, 0, 0);
             }
 
+
             }
         }
 
