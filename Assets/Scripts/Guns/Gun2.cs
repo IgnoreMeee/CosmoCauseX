@@ -5,8 +5,8 @@ public class Gun2 : MonoBehaviour
     public PlayerMovement player;
     public GameObject effect2;
     ParticleSystem muzzleFlash;
-    public float damage = 50f;
-    public float range = 120f; 
+    public float damage = 100f;
+    public float range = 175f; 
     Vector3 shootPoint;
 
     public Camera ourCam;
