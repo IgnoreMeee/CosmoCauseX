@@ -4,6 +4,7 @@ public class Gun1 : MonoBehaviour
 {
     public PlayerMovement player;
     public Transform gun1;
+    public GameObject effect;
     public float damage = 50f;
     public float range = 120f; 
     Vector3 shootPoint;
@@ -14,6 +15,7 @@ public class Gun1 : MonoBehaviour
     void Update()
     {
         if (player.paused) return;
+        
         if (Input.GetMouseButtonDown(0))
         {
             Shoot();
@@ -43,13 +45,15 @@ public class Gun1 : MonoBehaviour
                     + ourCam.transform.forward * range;
         }
         
-        GameObject tracer = 
-        Instantiate(tracerPrefab, 
-        gun1.position + gun1.forward * 0.2f + gun1.up * 0.1f, 
-        Quaternion.identity);
-        tracer.GetComponent<BulletTracer>().target = shootPoint;
+        // GameObject tracer = 
+        // Instantiate(tracerPrefab, 
+        // gun1.position + gun1.forward * 0.2f + gun1.up * 0.1f, 
+        // Quaternion.identity);
+        // tracer.GetComponent<BulletTracer>().target = shootPoint;
         // SoundManager.Instance.PlaySFX(SoundManager.Instance.Shoot);
 
+        GameObject gun1Impact = Instantiate(effect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(gun1Impact, 2f);
         
     }
 }
