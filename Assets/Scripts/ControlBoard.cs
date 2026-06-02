@@ -4,6 +4,7 @@ public class ControlBoard : MonoBehaviour
 {
     public Camera ourCam;
     public Transform player;
+    public Transform chair;
     public PlayerMovement movement;
     public GameObject gun;
     public GameObject lightObject;
@@ -11,26 +12,47 @@ public class ControlBoard : MonoBehaviour
     
     
    
-    void Update()
+   void Update()
+{
+    if (!Input.GetKeyDown(KeyCode.F))
+        return;
+
+    if (movement.canMove && LookingAtChair())
     {
-        RaycastHit see;
-        bool lookingAtChair = Physics.Raycast(ourCam.transform.position, ourCam.transform.forward, out see, 10f)&& see.transform.name == "Chair";
-
-        if (Input.GetKeyDown(KeyCode.F) && movement.canMove && lookingAtChair)
-        {
-            player.transform.position = transform.position + new Vector3(0, 0.8f, 0);
-            movement.canMove = false;
-            gun.SetActive(true);
-            lightObject.SetActive(false);
-            
-        } else if (Input.GetKeyDown(KeyCode.F) && !movement.canMove)
-        {
-            movement.canMove = true;
-            // player.transform.position = transform.position + Vector3.left;
-            gun.SetActive(false);
-        }
-
+        EnterControlBoard();
     }
+    else if (!movement.canMove)
+    {
+        ExitControlBoard();
+    }
+}
+
+bool LookingAtChair()
+{
+    int mask = ~LayerMask.GetMask("Player");
+
+    return Physics.Raycast(
+        ourCam.transform.position,
+        ourCam.transform.forward,
+        out RaycastHit hit,
+        10f, mask)
+        && hit.transform.CompareTag("Chair");
+}
+
+void EnterControlBoard()
+{
+    player.position = chair.position + Vector3.up * 0.8f;
+    movement.canMove = false;
+
+    gun.SetActive(true);
+    lightObject.SetActive(false);
+}
+
+void ExitControlBoard()
+{
+    movement.canMove = true;
+    gun.SetActive(false);
+}
 
 }
 

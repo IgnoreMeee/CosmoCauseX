@@ -27,9 +27,11 @@ public class Gun : MonoBehaviour
         muzzleFlash.Play();
         RaycastHit hit;
         //generate a new tracer
-        
-        if (Physics.Raycast(ourCam.transform.position, ourCam.transform.forward, out hit, range))
+        int mask = ~LayerMask.GetMask("Player");
+
+        if (Physics.Raycast(ourCam.transform.position, ourCam.transform.forward, out hit, range, mask))
         {
+            if (hit.transform == player) return;
             //damage target
             Debug.Log(hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
@@ -39,6 +41,7 @@ public class Gun : MonoBehaviour
             }
 
             shootPoint = hit.point;
+            Debug.Log("HIT: " + hit.transform.name);
 
         } else  {
             shootPoint = ourCam.transform.position
