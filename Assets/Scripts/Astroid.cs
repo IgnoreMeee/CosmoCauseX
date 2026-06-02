@@ -8,6 +8,7 @@ public class Astroid : MonoBehaviour
     public GameObject Ass;
     public GameObject meteortrail;
     public Rigidbody AssRb;
+    public GameObject lightObject;
     float asteroidSpawnDelay = 2f;
     Clock clock;
     string prevHour = "12 AM";
@@ -24,10 +25,12 @@ public class Astroid : MonoBehaviour
         if (clock.hour != prevHour) {
     
             SummonAsteroids();
+            lightObject.SetActive(true);
             StartCoroutine(SpawnAsteroid(asteroidSpawnDelay));
-        
+            
         prevHour = clock.hour;
         }
+        
         MoveAsteroids();
     }
 

@@ -6,6 +6,8 @@ public class ControlBoard : MonoBehaviour
     public Transform player;
     public PlayerMovement movement;
     public GameObject gun;
+    public GameObject lightObject;
+
     
     
    
@@ -16,14 +18,15 @@ public class ControlBoard : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F) && movement.canMove && lookingAtChair)
         {
+            player.transform.position = transform.position + new Vector3(0, 0.8f, 0);
             movement.canMove = false;
-            player.transform.position = transform.position + new Vector3(0, 0.6f, 0);
             gun.SetActive(true);
-
+            lightObject.SetActive(false);
+            
         } else if (Input.GetKeyDown(KeyCode.F) && !movement.canMove)
         {
             movement.canMove = true;
-            player.transform.position = transform.position + Vector3.left;
+            // player.transform.position = transform.position + Vector3.left;
             gun.SetActive(false);
         }
 
