@@ -52,7 +52,7 @@ public class SaveData : MonoBehaviour
 [System.Serializable]
 public class Information
 {
-    public int point;
+    public int point = 300;
     public float UIVolume;
     public float SFXVolume;
 }

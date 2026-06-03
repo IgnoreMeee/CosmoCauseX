@@ -4368,7 +4368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1945f997a23464da61e9c10562a2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clock
-  point: {fileID: 981396491}
+  point: {fileID: 0}
   player: {fileID: 953440033}
   seconds: 0
   hour: 
@@ -13093,6 +13093,7 @@ MonoBehaviour:
   rb: {fileID: 953440034}
   shop: {fileID: 1268644897}
   shopping: 0
+  point: {fileID: 0}
 --- !u!54 &953440034
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13390,51 +13391,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979566267}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &981396490
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 981396492}
-  - component: {fileID: 981396491}
-  m_Layer: 0
-  m_Name: PointSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &981396491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981396490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ef490242ad734c4f8f2ad55927d44a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  point: 300
---- !u!4 &981396492
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 981396490}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08458, y: 7.11986, z: -0.79861}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &993502467
 GameObject:
   m_ObjectHideFlags: 0
@@ -15511,7 +15467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopMenu
   x: {fileID: 953440033}
-  points: {fileID: 981396491}
+  points: {fileID: 0}
   gun: {fileID: 326992992}
   Gun1: {fileID: 112303032}
   Gun2: {fileID: 612858810}
@@ -22617,7 +22573,6 @@ SceneRoots:
   - {fileID: 1575581253}
   - {fileID: 654298064}
   - {fileID: 1461881046}
-  - {fileID: 981396492}
   - {fileID: 410087041}
   - {fileID: 1400994270}
   - {fileID: 1882392374}

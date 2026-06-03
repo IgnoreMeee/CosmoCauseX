@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        PointSystem.Instance.point = SaveData.Instance.info.point;
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 

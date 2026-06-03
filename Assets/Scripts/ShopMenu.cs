@@ -9,7 +9,6 @@ public class ShopMenu : MonoBehaviour
 {
 
     public PlayerMovement x;
-    public PointSystem points;
     public GunSwitching gun;
     public Button Gun1;
     public Button Gun2;
@@ -17,22 +16,25 @@ public class ShopMenu : MonoBehaviour
 
     void Update()
     {
-        pointText.text = points.point.ToString();
+        pointText.text = PointSystem.Instance.point.ToString();
+
     }
     
 
     public void Confirm()
     {
         x.CloseShop();
+        PointSystem.Instance.point = SaveData.Instance.info.point;
     }
 
 
     public void GunOne()
     {
-        if (points.point >= 100)
+        if (PointSystem.Instance.point >= 100)
         {
             Debug.Log("equiped");
-            points.point -=100;
+            PointSystem.Instance.point -=100;
+            SaveData.Instance.info.point = PointSystem.Instance.point;
             Gun1.interactable = false;
             gun.OwnGun1 = true;
 
@@ -43,10 +45,11 @@ public class ShopMenu : MonoBehaviour
 
     public void GunTwo()
     {
-        if (points.point >= 150)
+        if (PointSystem.Instance.point >= 150)
         {
             Debug.Log("equiped");
-            points.point -=150;
+            PointSystem.Instance.point -=150;
+            SaveData.Instance.info.point = PointSystem.Instance.point;
             Gun2.interactable = false;
             gun.OwnGun2 = true;
 

@@ -72,7 +72,10 @@ public class Clock : MonoBehaviour
         if (seconds % 60 == 0 && seconds != 0 && seconds != lastPointSecond)
         {
             lastPointSecond = seconds;
+<<<<<<< Updated upstream
             point.point += 10;
+=======
+>>>>>>> Stashed changes
             
         }
     }
