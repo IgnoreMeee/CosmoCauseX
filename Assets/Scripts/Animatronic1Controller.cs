@@ -15,6 +15,7 @@ public class FreddyController : MonoBehaviour
     //public CameraControl cameraControl;
     public doorcontroller doorControl;
     public GameObject animatronic;
+    public GameObject animatronicCrawl;
     //public jumpscareController jumpscareControl;
 
     difficultycontroller a1;
@@ -28,6 +29,7 @@ public class FreddyController : MonoBehaviour
 
     public int previousIndex;
     public int locationIndex = 0;
+    public bool crawling;
     
     public int location = 6;
     int prevTime = 0;
@@ -65,6 +67,18 @@ public class FreddyController : MonoBehaviour
         // {
         //     jumpscare();
         // }
+
+
+        if (crawling){
+            animatronic.SetActive(false);
+            animatronicCrawl.SetActive(true);
+        }
+        else
+        {
+            animatronic.SetActive(true);
+            animatronicCrawl.SetActive(false);
+        }
+
     }
 
     void moveTime()
@@ -199,9 +213,9 @@ public class FreddyController : MonoBehaviour
         switch (locationIndex)
         {
             case 0:
-                Debug.Log("original position");
                 transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 71.26f); 
                 transform.eulerAngles = new UnityEngine.Vector3(0f, -90f, 0f);
+                crawling = false;
                 break;
             case 1:
                 targetPos = new UnityEngine.Vector3(-15.63f, currentPos.y, 64.25f);
@@ -232,6 +246,7 @@ public class FreddyController : MonoBehaviour
                 targetPos = new UnityEngine.Vector3(-66.82f, currentPos.y, 128.4f); //works for both previous indexes (3 and 9)
                 desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
                 StartCoroutine(MoveRoutineLinear(targetPos, duration, desiredRotation));
+                crawling = false;
                 break;
             case 6:
                 if(previousIndex == 5)
@@ -260,6 +275,7 @@ public class FreddyController : MonoBehaviour
             case 8:
                 targetPos = new UnityEngine.Vector3(-45.61f, currentPos.y, 101.66f); 
                 desiredRotation = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
+                crawling = true;
                 StartCoroutine(MoveRoutineLinear(targetPos, duration, desiredRotation));
                 break;
             case 9:
@@ -269,12 +285,14 @@ public class FreddyController : MonoBehaviour
                     targetPos2 = new UnityEngine.Vector3(-66.76f, currentPos.y, 117.44f); 
                     desiredRotation = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
                     desiredRotation2 = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                    crawling = true;
                     StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2));
                 }
                 else
                 {
                     targetPos = new UnityEngine.Vector3(-66.76f, currentPos.y, 117.44f);
                     desiredRotation = UnityEngine.Quaternion.Euler(0f, 180f, 0f);
+                    crawling = true;
                     StartCoroutine(MoveRoutineLinear(targetPos, duration, desiredRotation));
                 }
                 break;
@@ -314,6 +332,7 @@ public class FreddyController : MonoBehaviour
                 targetPos2 = new UnityEngine.Vector3(-57.24f, currentPos.y, 75.63f);
                 desiredRotation = UnityEngine.Quaternion.Euler(0f, -45f, 0f);
                 desiredRotation2 = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                crawling = true;
                 StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2)); 
                 break;
             case 14:
@@ -321,6 +340,7 @@ public class FreddyController : MonoBehaviour
                 targetPos2 = new UnityEngine.Vector3(-66.83f, currentPos.y, 79.56f);
                 desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
                 desiredRotation2 = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
+                crawling = true;
                 StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2));  
                 break;
             default:
