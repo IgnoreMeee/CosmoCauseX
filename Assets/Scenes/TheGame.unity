@@ -510,6 +510,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &40723597 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7650132254794539761, guid: 20b23e51d44764d06bed48dd4f40a797, type: 3}
+  m_PrefabInstance: {fileID: 425715815159300389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &61076355 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4506677310313640737, guid: f16ce03f12a96ec44a34fd7217633a6d, type: 3}
@@ -2201,7 +2206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &326992991
 Transform:
   m_ObjectHideFlags: 0
@@ -15725,6 +15730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gun1
   player: {fileID: 953440033}
   effect1: {fileID: 100004, guid: 084c6a87873fd6e4da7978a01aa18b34, type: 3}
+  muzzleFlash: {fileID: 1535196242}
   damage: 50
   range: 120
   ourCam: {fileID: 330585545}
@@ -18515,6 +18521,11 @@ Transform:
   - {fileID: 547346888}
   m_Father: {fileID: 1979259999}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1535196242 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8636548067389473580, guid: 7b488e93de0cc4268800c858d62d42ba, type: 3}
+  m_PrefabInstance: {fileID: 3938465035605511530}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1559397118
 GameObject:
   m_ObjectHideFlags: 0
@@ -18728,6 +18739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gun2
   player: {fileID: 953440033}
   effect2: {fileID: 100008, guid: 1ae4db7b36e51124b89d2b32303a7a0b, type: 3}
+  muzzleFlash: {fileID: 40723597}
   damage: 100
   range: 175
   ourCam: {fileID: 330585545}
@@ -22573,7 +22585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7764270004939205477, guid: 7b488e93de0cc4268800c858d62d42ba, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 837566295083024348, guid: 7b488e93de0cc4268800c858d62d42ba, type: 3}

@@ -4,7 +4,7 @@ public class Gun1 : MonoBehaviour
 {
     public PlayerMovement player;
     public GameObject effect1;
-    // public ParticleSystem muzzleFlash;
+    public ParticleSystem muzzleFlash;
     public float damage = 50f;
     public float range = 120f; 
     Vector3 shootPoint;
@@ -24,7 +24,7 @@ public class Gun1 : MonoBehaviour
 
     public void Shoot()
     {
-        // muzzleFlash.Play();
+        muzzleFlash.Play();
         RaycastHit hit;
         //generate a new tracer
         int mask = ~LayerMask.GetMask("Player");
