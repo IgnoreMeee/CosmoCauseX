@@ -4368,7 +4368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b1945f997a23464da61e9c10562a2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Clock
-  point: {fileID: 0}
   player: {fileID: 953440033}
   seconds: 0
   hour: 
@@ -5547,7 +5546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &641458813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5648,7 +5647,7 @@ Transform:
   m_GameObject: {fileID: 641458812}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.07, y: 11.42, z: 19.38}
+  m_LocalPosition: {x: -184.6, y: 63.52887, z: 97.299286}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13093,7 +13092,6 @@ MonoBehaviour:
   rb: {fileID: 953440034}
   shop: {fileID: 1268644897}
   shopping: 0
-  point: {fileID: 0}
 --- !u!54 &953440034
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15467,7 +15465,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopMenu
   x: {fileID: 953440033}
-  points: {fileID: 0}
   gun: {fileID: 326992992}
   Gun1: {fileID: 112303032}
   Gun2: {fileID: 612858810}

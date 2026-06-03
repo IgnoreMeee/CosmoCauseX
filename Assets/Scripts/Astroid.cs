@@ -23,12 +23,14 @@ public class Astroid : MonoBehaviour
     void Update()
     {
         if (clock.hour != prevHour) {
-    
+            Debug.Log("FUCKING KILL YOURSELF");
+            
             SummonAsteroids();
-            lightObject.SetActive(true);
+            // lightObject.SetActive(true);
             StartCoroutine(SpawnAsteroid(asteroidSpawnDelay));
             
-        prevHour = clock.hour;
+            prevHour = clock.hour;
+            Debug.Log(clock.hour + " " + prevHour);
         }
         
         MoveAsteroids();
@@ -45,10 +47,12 @@ public class Astroid : MonoBehaviour
             float AssZ = Ass.transform.position.z + randomZShift;
            
             GameObject asteroid = Instantiate(Ass, new Vector3(Ass.transform.position.x, Ass.transform.position.y + randomYShift, Ass.transform.position.z - randomZShift), Quaternion.identity);
+            asteroid.SetActive(false);
             GameObject meteor = Instantiate(meteortrail, new Vector3(Ass.transform.position.x, Ass.transform.position.y + randomYShift, Ass.transform.position.z - randomZShift), Quaternion.identity);
-            meteor.transform.eulerAngles = new Vector3(0, 90, 0);
-            
+            meteor.transform.eulerAngles = new Vector3(0, -90, 0);
+
             meteor.transform.SetParent(asteroid.transform);
+
             asteroids[i] = asteroid;
         }
         
@@ -74,12 +78,12 @@ public class Astroid : MonoBehaviour
 
             if (asteroids[i].activeSelf) {
             
-            if (asteroids[i].transform.position.x <= -22)
+            if (asteroids[i].transform.position.x >= -109)
             {
                 Destroy(asteroids[i]);
             } else
             {
-                asteroids[i].GetComponent<Rigidbody>().linearVelocity = new Vector3(-10f, 0, 0);
+                asteroids[i].GetComponent<Rigidbody>().linearVelocity = new Vector3(4f, 0, 0);
             }
 
             }
