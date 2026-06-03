@@ -16,7 +16,7 @@ public class Clock : MonoBehaviour
 
     void Start()
     {
-        
+        player.OpenShop();
     }
 
     void Update()
@@ -73,7 +73,7 @@ public class Clock : MonoBehaviour
         {
             lastPointSecond = seconds;
             point.point += 10;
-            player.OpenShop();
+            
         }
     }
     void IncreaseTime()

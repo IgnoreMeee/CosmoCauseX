@@ -20,9 +20,11 @@ public class FreddyController : MonoBehaviour
     difficultycontroller a1;
     public event Action freddyJumpscare;
     UnityEngine.Vector3 currentPos;
-    UnityEngine.Vector3 currentCoord;
     UnityEngine.Vector3 targetPos;
     UnityEngine.Vector3 targetPos2;
+
+    UnityEngine.Quaternion desiredRotation;
+    UnityEngine.Quaternion desiredRotation2;
 
     public int previousIndex;
     public int locationIndex = 0;
@@ -199,150 +201,193 @@ public class FreddyController : MonoBehaviour
             case 0:
                 Debug.Log("original position");
                 transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 71.26f); 
+                transform.eulerAngles = new UnityEngine.Vector3(0f, -90f, 0f);
                 break;
             case 1:
                 targetPos = new UnityEngine.Vector3(-15.63f, currentPos.y, 64.25f);
-                StartCoroutine(MoveRoutineLinear(targetPos, duration));
+                desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                StartCoroutine(MoveRoutineLinear(targetPos, duration, desiredRotation));
                 //transform.position = new UnityEngine.Vector3(-15.63f, currentPos.y, 64.25f);
                 break;
             case 2:
-                targetPos = new UnityEngine.Vector3(-21.06f, currentPos.y, 101.83f); 
-                StartCoroutine(MoveRoutineLinear(targetPos, duration));
+                targetPos = new UnityEngine.Vector3(-21.06f, currentPos.y, 101.83f);
+                desiredRotation = UnityEngine.Quaternion.Euler(0f, -45f, 0f); 
+                StartCoroutine(MoveRoutineLinear(targetPos, duration, desiredRotation));
                 break;
             case 3:
                 targetPos = new UnityEngine.Vector3(-21.07f, currentPos.y, 128.4f); 
                 targetPos2 = new UnityEngine.Vector3(-41.36f, currentPos.y, 128.4f);
-                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration));
+                desiredRotation = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
+                desiredRotation2 = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2));
                 break;
             case 4:
                 targetPos = new UnityEngine.Vector3(-41.36f, currentPos.y, 146.92f); 
                 targetPos2 = new UnityEngine.Vector3(-61.22f, currentPos.y, 146.92f);
-                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration));
+                desiredRotation = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
+                desiredRotation2 = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2));
                 break;
             case 5:
                 targetPos = new UnityEngine.Vector3(-66.82f, currentPos.y, 128.4f); //works for both previous indexes (3 and 9)
-                StartCoroutine(MoveRoutineLinear(targetPos, duration));
+                desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                StartCoroutine(MoveRoutineLinear(targetPos, duration, desiredRotation));
                 break;
             case 6:
                 if(previousIndex == 5)
                 {
                     targetPos = new UnityEngine.Vector3(-81.19f, currentPos.y, 128.4f);
-                    StartCoroutine(MoveRoutineLinear(targetPos, duration));
+                    desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                    StartCoroutine(MoveRoutineLinear(targetPos, duration, desiredRotation));
                 }
                 else
                 {
                     targetPos = new UnityEngine.Vector3(-81.19f, currentPos.y, 146.92f);
                     targetPos2 = new UnityEngine.Vector3(-81.19f, currentPos.y, 128.4f);
-                    StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration));
+                    desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                    desiredRotation2 = UnityEngine.Quaternion.Euler(0f, -145f, 0f);
+                    StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2));
                 }
                 
                 break;
             case 7:
                 targetPos = new UnityEngine.Vector3(-91.87f, currentPos.y, 128.4f); 
                 targetPos2 = new UnityEngine.Vector3(-91.87f, currentPos.y, 115.62f);
-                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration));
+                desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                desiredRotation2 = UnityEngine.Quaternion.Euler(0f, 180f, 0f);
+                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2));
                 break;
             case 8:
                 targetPos = new UnityEngine.Vector3(-45.61f, currentPos.y, 101.66f); 
-                StartCoroutine(MoveRoutineLinear(targetPos, duration));
+                desiredRotation = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
+                StartCoroutine(MoveRoutineLinear(targetPos, duration, desiredRotation));
                 break;
             case 9:
                 if(previousIndex == 8)
                 {
                     targetPos = new UnityEngine.Vector3(-45.61f, currentPos.y, 117.44f);
                     targetPos2 = new UnityEngine.Vector3(-66.76f, currentPos.y, 117.44f); 
-                    StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration));
+                    desiredRotation = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
+                    desiredRotation2 = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                    StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2));
                 }
                 else
                 {
                     targetPos = new UnityEngine.Vector3(-66.76f, currentPos.y, 117.44f);
-                    StartCoroutine(MoveRoutineLinear(targetPos, duration));
+                    desiredRotation = UnityEngine.Quaternion.Euler(0f, 180f, 0f);
+                    StartCoroutine(MoveRoutineLinear(targetPos, duration, desiredRotation));
                 }
                 break;
             case 10:
                 if(previousIndex == 1)
                 {
                     targetPos = new UnityEngine.Vector3(-66.82f, currentPos.y, 64.27f);
-                    StartCoroutine(MoveRoutineLinear(targetPos, duration));
+                    desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                    StartCoroutine(MoveRoutineLinear(targetPos, duration, desiredRotation));
                 }
                 else
                 {
                     targetPos = new UnityEngine.Vector3(-66.82f, currentPos.y, 19.33f);
                     targetPos2 = new UnityEngine.Vector3(-66.82f, currentPos.y, 64.27f);
-                    StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration));  
+                    desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                    desiredRotation2 = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
+                    StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2));  
                 }
                 
                 break;
             case 11:
                 targetPos = new UnityEngine.Vector3(-66.82f, currentPos.y, 19.33f);
                 targetPos2 = new UnityEngine.Vector3(-56.77f, currentPos.y, 19.33f);
-                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration));  
+                desiredRotation = UnityEngine.Quaternion.Euler(0f, 180f, 0f);
+                desiredRotation2 = UnityEngine.Quaternion.Euler(0f, 90f, 0f);
+                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2));  
                 break;
             case 12:
                 targetPos = new UnityEngine.Vector3(-91.87f, currentPos.y, 64.27f);
                 targetPos2 = new UnityEngine.Vector3(-91.87f, currentPos.y, 71.64f);
-                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration)); 
+                desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                desiredRotation2 = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
+                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2)); 
                 break;
             case 13:
                 targetPos = new UnityEngine.Vector3(-23.92f, currentPos.y, 75.63f);
                 targetPos2 = new UnityEngine.Vector3(-57.24f, currentPos.y, 75.63f);
-                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration)); 
+                desiredRotation = UnityEngine.Quaternion.Euler(0f, -45f, 0f);
+                desiredRotation2 = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2)); 
                 break;
             case 14:
                 targetPos = new UnityEngine.Vector3(-66.83f, currentPos.y, 75.63f);
                 targetPos2 = new UnityEngine.Vector3(-66.83f, currentPos.y, 79.56f);
-                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration));  
+                desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
+                desiredRotation2 = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
+                StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2));  
                 break;
             default:
                 break;
         }
     }
 
-    private IEnumerator MoveRoutineLinear(UnityEngine.Vector3 target, float duration)
+    private IEnumerator MoveRoutineLinear(UnityEngine.Vector3 target, float duration, UnityEngine.Quaternion targetrotation)
     {
         UnityEngine.Vector3 startPosition = transform.position;
+        UnityEngine.Quaternion startRotation = transform.rotation;
         float elapsedTime = 0;
+        float rotationTime = 0.5f;
 
         while(elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / duration;
+            float t2 = elapsedTime / rotationTime;
 
             transform.position = UnityEngine.Vector3.Lerp(startPosition, target, t);
+            transform.rotation = UnityEngine.Quaternion.Lerp(startRotation, targetrotation, t2);
             yield return null;
         }
 
         transform.position = target; 
+        transform.rotation = targetrotation;
     }
 
-    private IEnumerator MoveRoutineCurve(UnityEngine.Vector3 target, UnityEngine.Vector3 target2, float duration)
+    private IEnumerator MoveRoutineCurve(UnityEngine.Vector3 target, UnityEngine.Vector3 target2, float duration, UnityEngine.Quaternion targetrotation, UnityEngine.Quaternion targetrotation2)
     {
         UnityEngine.Vector3 startPosition = transform.position;
+        UnityEngine.Quaternion startRotation = transform.rotation;
         float elapsedTime = 0;
+        float rotationTime = 0.4f;
         duration = duration / 2;
 
         while(elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / duration;
+            float t2 = elapsedTime / rotationTime;
 
             transform.position = UnityEngine.Vector3.Lerp(startPosition, target, t);
+            transform.rotation = UnityEngine.Quaternion.Lerp(startRotation, targetrotation, t2);
             yield return null;
         }
 
         transform.position = target; 
+        transform.rotation = targetrotation;
 
         startPosition = transform.position;
+        startRotation = transform.rotation;
         elapsedTime = 0;
         while(elapsedTime < duration)
         {
             elapsedTime += Time.deltaTime;
             float t = elapsedTime / duration;
+            float t2 = elapsedTime / rotationTime;
 
             transform.position = UnityEngine.Vector3.Lerp(startPosition, target2, t);
+            transform.rotation = UnityEngine.Quaternion.Lerp(startRotation, targetrotation2, t2);
             yield return null;
         }
         transform.position = target2; 
+        transform.rotation = targetrotation2;
+
 
     }
 
