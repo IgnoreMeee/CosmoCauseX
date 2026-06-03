@@ -11,11 +11,13 @@ public class Clock : MonoBehaviour
     string[] hours = {"12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM"};
     public string hour;
     int lastPointSecond = -1;
+    difficultycontroller a;
     
 
     void Start()
     {
         player.OpenShop();
+        a = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>(); 
     }
 
     void Update()
@@ -71,9 +73,8 @@ public class Clock : MonoBehaviour
         if (seconds % 60 == 0 && seconds != 0 && seconds != lastPointSecond)
         {
             lastPointSecond = seconds;
-            PointSystem.Instance.point += 20;
+            PointSystem.Instance.point += a.animatronic1difficulty + a.animatronic2difficulty + a.animatronic3difficulty + a.animatronic4difficulty;
             SaveData.Instance.info.point = PointSystem.Instance.point;
-            player.OpenShop();
             
         }
     }
