@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class Clock : MonoBehaviour
 {
     public event Action UpdateTime;
-    public PointSystem point;
     public PlayerMovement player;
     public int seconds = 0;
     int prevTime = 0;
@@ -75,6 +74,9 @@ public class Clock : MonoBehaviour
 <<<<<<< Updated upstream
             point.point += 10;
 =======
+            PointSystem.Instance.point += 20;
+            SaveData.Instance.info.point = PointSystem.Instance.point;
+            player.OpenShop();
 >>>>>>> Stashed changes
             
         }
