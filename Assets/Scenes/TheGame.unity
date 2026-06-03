@@ -4418,7 +4418,7 @@ MonoBehaviour:
   Ass: {fileID: 641458812}
   meteortrail: {fileID: 816415707}
   AssRb: {fileID: 641458818}
-  lightObject: {fileID: 0}
+  lightObject: {fileID: 1486137958}
 --- !u!4 &516370079
 Transform:
   m_ObjectHideFlags: 0
@@ -5297,7 +5297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   myLight: {fileID: 1486137961}
-  lightObject: {fileID: 0}
+  lightObject: {fileID: 600721559}
   interval: 0.5
 --- !u!1 &602243450
 GameObject:
@@ -17370,7 +17370,7 @@ MonoBehaviour:
   chair: {fileID: 1461881046}
   movement: {fileID: 953440033}
   gun: {fileID: 326992990}
-  lightObject: {fileID: 0}
+  lightObject: {fileID: 1486137958}
 --- !u!65 &1461881043
 BoxCollider:
   m_ObjectHideFlags: 0

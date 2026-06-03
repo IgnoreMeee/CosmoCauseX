@@ -26,8 +26,8 @@ public class Astroid : MonoBehaviour
             Debug.Log("FUCKING KILL YOURSELF");
             
             SummonAsteroids();
-            // lightObject.SetActive(true);
             StartCoroutine(SpawnAsteroid(asteroidSpawnDelay));
+            lightObject.SetActive(true);
             
             prevHour = clock.hour;
             Debug.Log(clock.hour + " " + prevHour);
