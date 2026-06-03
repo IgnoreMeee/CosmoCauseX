@@ -267,7 +267,7 @@ public class FreddyController : MonoBehaviour
                 break;
             case 7:
                 targetPos = new UnityEngine.Vector3(-91.87f, currentPos.y, 128.4f); 
-                targetPos2 = new UnityEngine.Vector3(-91.87f, currentPos.y, 115.62f);
+                targetPos2 = new UnityEngine.Vector3(-91.87f, currentPos.y, 110.48f);
                 desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
                 desiredRotation2 = UnityEngine.Quaternion.Euler(0f, 180f, 0f);
                 StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2));
@@ -322,7 +322,7 @@ public class FreddyController : MonoBehaviour
                 break;
             case 12:
                 targetPos = new UnityEngine.Vector3(-91.87f, currentPos.y, 64.27f);
-                targetPos2 = new UnityEngine.Vector3(-91.87f, currentPos.y, 71.64f);
+                targetPos2 = new UnityEngine.Vector3(-91.87f, currentPos.y, 79.17f);
                 desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
                 desiredRotation2 = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
                 StartCoroutine(MoveRoutineCurve(targetPos, targetPos2, duration, desiredRotation, desiredRotation2)); 
@@ -337,7 +337,7 @@ public class FreddyController : MonoBehaviour
                 break;
             case 14:
                 targetPos = new UnityEngine.Vector3(-66.83f, currentPos.y, 75.63f);
-                targetPos2 = new UnityEngine.Vector3(-66.83f, currentPos.y, 79.56f);
+                targetPos2 = new UnityEngine.Vector3(-66.83f, currentPos.y, 81.58f);
                 desiredRotation = UnityEngine.Quaternion.Euler(0f, -90f, 0f);
                 desiredRotation2 = UnityEngine.Quaternion.Euler(0f, 0f, 0f);
                 crawling = true;
