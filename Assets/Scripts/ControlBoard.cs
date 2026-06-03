@@ -14,32 +14,30 @@ public class ControlBoard : MonoBehaviour
    
    void Update()
 {
+    RaycastHit see;
+    int mask = ~LayerMask.GetMask("Player");
+    bool lookingAtChair = 
+    Physics.Raycast(
+        ourCam.transform.position, 
+        ourCam.transform.forward, 
+        out see, 
+        10f,mask)
+        && see.transform.name == "Chair";
+
     if (!Input.GetKeyDown(KeyCode.F))
         return;
 
-    if (movement.canMove && LookingAtChair())
+    if (movement.canMove && lookingAtChair)
     {
-        EnterControlBoard();
+        EnterChair();
     }
     else if (!movement.canMove)
     {
-        ExitControlBoard();
+        ExitChair();
     }
 }
 
-bool LookingAtChair()
-{
-    int mask = ~LayerMask.GetMask("Player");
-
-    return Physics.Raycast(
-        ourCam.transform.position,
-        ourCam.transform.forward,
-        out RaycastHit hit,
-        10f, mask)
-        && hit.transform.CompareTag("Chair");
-}
-
-void EnterControlBoard()
+void EnterChair()
 {
     player.position = chair.position + Vector3.up * 0.8f;
     movement.canMove = false;
@@ -48,8 +46,9 @@ void EnterControlBoard()
     lightObject.SetActive(false);
 }
 
-void ExitControlBoard()
+void ExitChair()
 {
+    player.position = chair.position + Vector3.left;
     movement.canMove = true;
     gun.SetActive(false);
 }
