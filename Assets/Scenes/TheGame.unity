@@ -4419,7 +4419,7 @@ MonoBehaviour:
   Ass: {fileID: 641458812}
   meteortrail: {fileID: 816415707}
   AssRb: {fileID: 641458818}
-  lightObject: {fileID: 1486137958}
+  lightObject: {fileID: 0}
 --- !u!4 &516370079
 Transform:
   m_ObjectHideFlags: 0
@@ -6390,7 +6390,7 @@ Camera:
   field of view: 49
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 12
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -17373,7 +17373,7 @@ MonoBehaviour:
   chair: {fileID: 1461881046}
   movement: {fileID: 953440033}
   gun: {fileID: 326992990}
-  lightObject: {fileID: 1486137958}
+  lightObject: {fileID: 0}
 --- !u!65 &1461881043
 BoxCollider:
   m_ObjectHideFlags: 0
