@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     [Header("SFX Sound")]
     public AudioClip Shoot;
     public AudioClip Shoot1;
+    public AudioClip Shoot2;
     public AudioClip Walking; //not sure but ye
     public AudioClip astoidExplode;
     public AudioClip alarm;
