@@ -40,15 +40,15 @@ public class Astroid : MonoBehaviour
     {
         for (int i = 0; i < asteroids.Length; i++)
         {
-            float randomYShift = Random.Range(-1f, 2f);
-            float randomZShift = Random.Range(0f, 10f);
+            float randomYShift = Random.Range(-1f, 1f);
+            float randomZShift = Random.Range(-9f, 9f);
 
             float AssY = Ass.transform.position.y + randomYShift;
             float AssZ = Ass.transform.position.z + randomZShift;
            
-            GameObject asteroid = Instantiate(Ass, new Vector3(Ass.transform.position.x, Ass.transform.position.y + randomYShift, Ass.transform.position.z - randomZShift), Quaternion.identity);
+            GameObject asteroid = Instantiate(Ass, new Vector3(Ass.transform.position.x, Ass.transform.position.y + randomYShift, Ass.transform.position.z + randomZShift), Quaternion.identity);
             asteroid.SetActive(false);
-            GameObject meteor = Instantiate(meteortrail, new Vector3(Ass.transform.position.x, Ass.transform.position.y + randomYShift, Ass.transform.position.z - randomZShift), Quaternion.identity);
+            GameObject meteor = Instantiate(meteortrail, new Vector3(Ass.transform.position.x, Ass.transform.position.y + randomYShift, Ass.transform.position.z + randomZShift), Quaternion.identity);
             meteor.transform.eulerAngles = new Vector3(0, -90, 0);
 
             meteor.transform.SetParent(asteroid.transform);
@@ -78,7 +78,7 @@ public class Astroid : MonoBehaviour
 
             if (asteroids[i].activeSelf) {
             
-            if (asteroids[i].transform.position.x >= -109)
+            if (asteroids[i].transform.position.x >= -108)
             {
                 Destroy(asteroids[i]);
             } else
