@@ -7,12 +7,16 @@ public class Astroid : MonoBehaviour
 {
     public GameObject Ass;
     public GameObject meteortrail;
+    public GameObject meteorexplosion;
     public Rigidbody AssRb;
     public GameObject lightObject;
+    public livescontroller lives;
     float asteroidSpawnDelay = 2f;
     Clock clock;
+    int prevTime;
     string prevHour = "12 AM";
     GameObject[] asteroids = new GameObject[10];
+    GameObject[] booms = new GameObject[10]; //10 BIG BOOMS
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -80,7 +84,11 @@ public class Astroid : MonoBehaviour
             
             if (asteroids[i].transform.position.x >= -108)
             {
+                GameObject boom = Instantiate(meteorexplosion, new Vector3(asteroids[i].transform.position.x, asteroids[i].transform.position.y, asteroids[i].transform.position.z), Quaternion.identity);
+                booms[i] = boom;
+                lives.lives -= 1;
                 Destroy(asteroids[i]);
+                StartCoroutine(deleteExplosion(booms[i]));
             } else
             {
                 asteroids[i].GetComponent<Rigidbody>().linearVelocity = new Vector3(4f, 0, 0);
@@ -90,5 +98,16 @@ public class Astroid : MonoBehaviour
         }
 
 
+    }
+
+    IEnumerator deleteExplosion(GameObject prefab)
+    {
+        float elapsedTime = 0;
+        while(elapsedTime < 1)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        Destroy(prefab);
     }
 }
