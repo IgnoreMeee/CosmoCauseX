@@ -19,19 +19,19 @@ public class livescontroller : MonoBehaviour
         if(lives == 3)
         {
             life1.SetActive(true);
-            life1.SetActive(true);
-            life1.SetActive(true);
+            life2.SetActive(true);
+            life3.SetActive(true);
         }else if(lives == 2)
         {
             life1.SetActive(true);
-            life1.SetActive(true);
-            life1.SetActive(false);
+            life2.SetActive(true);
+            life3.SetActive(false);
         }
         else
         {
             life1.SetActive(true);
-            life1.SetActive(false);
-            life1.SetActive(false);
+            life2.SetActive(false);
+            life3.SetActive(false);
         }
     }
 }
