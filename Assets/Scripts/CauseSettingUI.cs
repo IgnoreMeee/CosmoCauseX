@@ -3,14 +3,12 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class SettingUI : MonoBehaviour
+public class CauseSettingUI : MonoBehaviour
 {
     
     public Slider UISlider, SFXSlider;
     SceneTracker scene;
     public Canvas TheGameCanvas, SettingCanvas;
-    public GameObject Crosshair;
-    public PlayerMovement player;
     
     void Start()
     {
@@ -49,20 +47,11 @@ public class SettingUI : MonoBehaviour
     }
 
    
-     public void Back()
+    public void Back()
     {
         SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
         SceneManager.LoadScene(scene.currentScene);
     }
 
-    public void BackCause() {
-        SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
-        TheGameCanvas.gameObject.SetActive(true);
-        SettingCanvas.gameObject.SetActive(false);
 
-        player.Resume.gameObject.SetActive(true);
-        player.Settings.gameObject.SetActive(true);
-        player.Exit.gameObject.SetActive(true);
-        Crosshair.SetActive(true);
-    }
 }

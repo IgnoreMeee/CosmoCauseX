@@ -6,6 +6,9 @@ public class PauseMenuControl : MonoBehaviour
 {
     SceneTracker scene;
     public PlayerMovement player;
+    public Canvas TheGameCanvas, SettingCanvas;
+    public GameObject Crosshair;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,9 +37,19 @@ public class PauseMenuControl : MonoBehaviour
 
     public void SettingsButton()
     {
-        player.paused = false;
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("SettingScreen");
+        // player.paused = false;
+        // Time.timeScale = 1f;
+        // SceneManager.LoadScene("SettingScreen");
+        TheGameCanvas.gameObject.SetActive(false);
+        SettingCanvas.gameObject.SetActive(true);
+
+        player.Resume.gameObject.SetActive(false);
+        player.Settings.gameObject.SetActive(false);
+        player.Exit.gameObject.SetActive(false);
+        Crosshair.SetActive(false);
+
+        SaveData.Instance.LoadJson();
+      
     }
 
     public void ExitButton()

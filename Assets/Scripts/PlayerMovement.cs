@@ -145,6 +145,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.linearVelocity = new Vector3 (rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+ 
     }
 
     void Run()
