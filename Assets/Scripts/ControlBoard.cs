@@ -48,7 +48,7 @@ void EnterChair()
 
 void ExitChair()
 {
-    player.position = chair.position + Vector3.left;
+    player.position = chair.position + Vector3.right;
     movement.canMove = true;
     gun.SetActive(false);
 }
