@@ -851,7 +851,14 @@ MonoBehaviour:
   uiSource: {fileID: 2069410124}
   sfxSource: {fileID: 1163137308}
   ButtonClick: {fileID: 8300000, guid: df99823c398fe4f00835682a6b9f5217, type: 3}
-  Shoot: {fileID: 8300000, guid: e730f0ecb16b04923b06a11d51d36132, type: 3}
+  switchCam: {fileID: 0}
+  Shoot: {fileID: 8300000, guid: 41f98bd7cc73d4dcabc17ccf42afd450, type: 3}
+  Shoot1: {fileID: 8300000, guid: 7d1d92d77e0a04de8a7a75047438ddc5, type: 3}
+  Shoot2: {fileID: 8300000, guid: b2a73136596a945d4b348f954b875dd7, type: 3}
+  Walking: {fileID: 0}
+  astoidExplode: {fileID: 0}
+  alarm: {fileID: 0}
+  jumpScare: {fileID: 0}
 --- !u!4 &1014478146
 Transform:
   m_ObjectHideFlags: 0

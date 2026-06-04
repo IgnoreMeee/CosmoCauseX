@@ -16212,7 +16212,14 @@ MonoBehaviour:
   uiSource: {fileID: 402207855}
   sfxSource: {fileID: 1041173517}
   ButtonClick: {fileID: 8300000, guid: df99823c398fe4f00835682a6b9f5217, type: 3}
+  switchCam: {fileID: 0}
   Shoot: {fileID: 8300000, guid: c703fe14f1aa044ce9c7fccc72b475ff, type: 3}
+  Shoot1: {fileID: 0}
+  Shoot2: {fileID: 0}
+  Walking: {fileID: 0}
+  astoidExplode: {fileID: 0}
+  alarm: {fileID: 0}
+  jumpScare: {fileID: 0}
 --- !u!4 &1342901529
 Transform:
   m_ObjectHideFlags: 0
@@ -22867,63 +22874,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1594924080}
   m_SourcePrefab: {fileID: 100100000, guid: 20b23e51d44764d06bed48dd4f40a797, type: 3}
---- !u!1001 &1511488058902215012
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1865280441791501228, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.34082
-      objectReference: {fileID: 0}
-    - target: {fileID: 1865280441791501228, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.37736
-      objectReference: {fileID: 0}
-    - target: {fileID: 1865280441791501228, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -10.26131
-      objectReference: {fileID: 0}
-    - target: {fileID: 1865280441791501228, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1865280441791501228, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1865280441791501228, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1865280441791501228, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1865280441791501228, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1865280441791501228, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1865280441791501228, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5702665967513097836, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
-      propertyPath: m_Name
-      value: BulletTracer
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7e33f9b9ea7c847f5917128233b97a77, type: 3}
 --- !u!1001 &3938465035605511530
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23018,7 +22968,6 @@ SceneRoots:
   - {fileID: 516370079}
   - {fileID: 421660660}
   - {fileID: 36031482}
-  - {fileID: 1511488058902215012}
   - {fileID: 1342901529}
   - {fileID: 512230315}
   - {fileID: 70632526}
