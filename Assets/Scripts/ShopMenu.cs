@@ -23,6 +23,7 @@ public class ShopMenu : MonoBehaviour
 
     public void Confirm()
     {
+        x.paused = false;
         x.CloseShop();
         PointSystem.Instance.point = SaveData.Instance.info.point;
     }

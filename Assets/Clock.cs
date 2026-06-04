@@ -16,6 +16,7 @@ public class Clock : MonoBehaviour
 
     void Start()
     {
+        player.paused = true;
         player.OpenShop();
         a = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>(); 
     }

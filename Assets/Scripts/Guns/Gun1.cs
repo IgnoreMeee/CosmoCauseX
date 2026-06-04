@@ -52,7 +52,7 @@ public class Gun1 : MonoBehaviour
         // gun1.position + gun1.forward * 0.2f + gun1.up * 0.1f, 
         // Quaternion.identity);
         // tracer.GetComponent<BulletTracer>().target = shootPoint;
-        // SoundManager.Instance.PlaySFX(SoundManager.Instance.Shoot);
+        SoundManager.Instance.PlaySFX(SoundManager.Instance.Shoot1);
 
         GameObject gun1Impact = Instantiate(effect1, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(gun1Impact, 2f);

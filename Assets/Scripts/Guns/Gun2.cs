@@ -45,7 +45,7 @@ public class Gun2 : MonoBehaviour
                     + ourCam.transform.forward * range;
         }
         
-        // SoundManager.Instance.PlaySFX(SoundManager.Instance.Shoot);
+        SoundManager.Instance.PlaySFX(SoundManager.Instance.Shoot2);
 
         GameObject gun2Impact = Instantiate(effect2, hit.point, Quaternion.LookRotation(hit.normal));
         Destroy(gun2Impact, 2f);
