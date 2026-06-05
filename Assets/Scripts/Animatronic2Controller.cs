@@ -8,7 +8,7 @@ using JetBrains.Annotations;
 using UnityEngine.Rendering;
 using System.Collections;
 
-public class MimicController : MonoBehaviour
+public class ShamrockController : MonoBehaviour
 {
 
     public Clock clock;
@@ -46,14 +46,14 @@ public class MimicController : MonoBehaviour
     {
         clock = clock.GetComponent<Clock>();
         currentPos = transform.position;
-        transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 71.26f); 
+        transform.position = new UnityEngine.Vector3(17.98f, currentPos.y, 69.68f); 
         transform.eulerAngles = new UnityEngine.Vector3(0f, -90f, 0f);
         a1 = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>(); 
-        timePerChance = 21 - a1.animatronic1difficulty;
+        timePerChance = 21 - a1.animatronic2difficulty;
 
-        if(a1.animatronic1difficulty > 18)
+        if(a1.animatronic2difficulty > 18)
         {
-            duration = 20.9f - a1.animatronic1difficulty;
+            duration = 20.9f - a1.animatronic2difficulty;
         }
         
         //cameraControl = cameraControl.GetComponent<CameraControl>();
@@ -89,7 +89,7 @@ public class MimicController : MonoBehaviour
             prevTime = clock.seconds;
 
 
-            if (UnityEngine.Random.Range(1, 2) == 1)
+            if (UnityEngine.Random.Range(1, 4) == 1)
             {
                 Move();
                 Debug.Log("Index: " + locationIndex);
@@ -214,7 +214,7 @@ public class MimicController : MonoBehaviour
         switch (locationIndex)
         {
             case 0:
-                transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 71.26f); 
+                transform.position = new UnityEngine.Vector3(17.98f, currentPos.y, 69.68f); 
                 transform.eulerAngles = new UnityEngine.Vector3(0f, -90f, 0f);
                 crawling = false;
                 break;
