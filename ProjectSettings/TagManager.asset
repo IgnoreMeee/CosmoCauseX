@@ -9,6 +9,16 @@ TagManager:
   - ButtonRight
   - VentLeft
   - VentRight
+  - Camera1
+  - Camera2
+  - Camera3
+  - Camera4
+  - Camera5
+  - Camera6
+  - Camera7
+  - CameraA
+  - CameraB
+  - CameraYOU
   layers:
   - Default
   - TransparentFX

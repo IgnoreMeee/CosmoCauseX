@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 public class CamController : MonoBehaviour
 {
-    Camera currentCam;
+    public Camera currentCam;
 
     public Camera StageCam;
     public Camera DiningCam;
@@ -17,7 +17,7 @@ public class CamController : MonoBehaviour
     public Camera RightRandomRoomCam;
     public Camera RightVentCam;
     int camCursor = 0;
-    Camera[] camList = new Camera[9];
+    public Camera[] camList = new Camera[9];
     float[] camRot = new float[9];
     float[] camLeftRot = new float[9];
     float[] camRightRot = new float[9];
