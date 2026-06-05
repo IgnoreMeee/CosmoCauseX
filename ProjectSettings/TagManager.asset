@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Chair
+  - ButtonLeft
+  - ButtonRight
+  - VentLeft
+  - VentRight
   layers:
   - Default
   - TransparentFX
