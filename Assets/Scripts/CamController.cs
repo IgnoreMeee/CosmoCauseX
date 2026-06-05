@@ -54,6 +54,17 @@ public class CamController : MonoBehaviour
     {
         SwapCams();
         MoveCameras();
+
+        for (int i = 0; i < camList.Length; i++)
+        {
+            if (camList[i].depth == 0)
+            {
+                camList[i].gameObject.SetActive(false);
+            } else
+            {
+                camList[i].gameObject.SetActive(true);
+            }
+        }
     }
 
     void SwapCams()
