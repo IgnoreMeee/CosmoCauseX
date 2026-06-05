@@ -8,7 +8,7 @@ using JetBrains.Annotations;
 using UnityEngine.Rendering;
 using System.Collections;
 
-public class FreddyController : MonoBehaviour
+public class MimicController : MonoBehaviour
 {
 
     public Clock clock;
@@ -47,6 +47,7 @@ public class FreddyController : MonoBehaviour
         clock = clock.GetComponent<Clock>();
         currentPos = transform.position;
         transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 71.26f); 
+        transform.eulerAngles = new UnityEngine.Vector3(0f, -90f, 0f);
         a1 = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>(); 
         timePerChance = 21 - a1.animatronic1difficulty;
 
