@@ -46,7 +46,7 @@ public class MimicController : MonoBehaviour
     {
         clock = clock.GetComponent<Clock>();
         currentPos = transform.position;
-        transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 71.26f); 
+        transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 70.7f); 
         transform.eulerAngles = new UnityEngine.Vector3(0f, -90f, 0f);
         a1 = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>(); 
         timePerChance = 21 - a1.animatronic1difficulty;
@@ -89,7 +89,7 @@ public class MimicController : MonoBehaviour
             prevTime = clock.seconds;
 
 
-            if (UnityEngine.Random.Range(1, 2) == 1)
+            if (UnityEngine.Random.Range(1, 3) == 1)
             {
                 Move();
                 Debug.Log("Index: " + locationIndex);
@@ -214,7 +214,7 @@ public class MimicController : MonoBehaviour
         switch (locationIndex)
         {
             case 0:
-                transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 71.26f); 
+                transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 70.7f); 
                 transform.eulerAngles = new UnityEngine.Vector3(0f, -90f, 0f);
                 crawling = false;
                 break;

@@ -46,7 +46,7 @@ public class ShamrockController : MonoBehaviour
     {
         clock = clock.GetComponent<Clock>();
         currentPos = transform.position;
-        transform.position = new UnityEngine.Vector3(17.98f, currentPos.y, 69.68f); 
+        transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 63.82f); 
         transform.eulerAngles = new UnityEngine.Vector3(0f, -90f, 0f);
         a1 = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>(); 
         timePerChance = 21 - a1.animatronic2difficulty;
@@ -214,7 +214,7 @@ public class ShamrockController : MonoBehaviour
         switch (locationIndex)
         {
             case 0:
-                transform.position = new UnityEngine.Vector3(17.98f, currentPos.y, 69.68f); 
+                transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 63.82f); 
                 transform.eulerAngles = new UnityEngine.Vector3(0f, -90f, 0f);
                 crawling = false;
                 break;
