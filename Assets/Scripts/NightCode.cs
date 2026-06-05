@@ -19,7 +19,7 @@ public class NightCode : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Night = SaveData.Instance.info.night;
     }
 
     // Update is called once per frame

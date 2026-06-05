@@ -87,6 +87,7 @@ public class Astroid : MonoBehaviour
                 GameObject boom = Instantiate(meteorexplosion, new Vector3(asteroids[i].transform.position.x, asteroids[i].transform.position.y, asteroids[i].transform.position.z), Quaternion.identity);
                 booms[i] = boom;
                 lives.lives -= 1;
+                SaveData.Instance.info.lives = lives.lives;
                 Destroy(asteroids[i]);
                 StartCoroutine(deleteExplosion(booms[i]));
             } else

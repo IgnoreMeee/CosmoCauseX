@@ -10,7 +10,7 @@ public class livescontroller : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        lives = 3;
+        lives = SaveData.Instance.info.lives;
     }
 
     // Update is called once per frame

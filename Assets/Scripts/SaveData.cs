@@ -21,7 +21,7 @@ public class SaveData : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             SavetoJson();
         }
@@ -55,6 +55,11 @@ public class Information
     public int point = 300;
     public float UIVolume;
     public float SFXVolume;
+    public int night = 1;
+    public int lives = 3;
+    public int equiped = 0;
+    public bool Have1 = false;
+    public bool Have2 = false;
 }
 
 

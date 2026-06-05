@@ -70,7 +70,12 @@ public class Clock : MonoBehaviour
                 if (nightCode.Night <= 5)
                 {
                     nightCode.Night++;
+                    SaveData.Instance.info.night = nightCode.Night;
+                    
+                    SaveData.Instance.SavetoJson();
+                    Debug.Log("save");
                 }
+ 
 
                 SceneManager.LoadScene("6AM");
                 break;
@@ -84,6 +89,8 @@ public class Clock : MonoBehaviour
             lastPointSecond = seconds;
             PointSystem.Instance.point += a.animatronic1difficulty + a.animatronic2difficulty + a.animatronic3difficulty + a.animatronic4difficulty;
             SaveData.Instance.info.point = PointSystem.Instance.point;
+            SaveData.Instance.SavetoJson();
+            Debug.Log("saved");
             
         }
     }

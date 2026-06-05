@@ -51,6 +51,7 @@ public class SettingUI : MonoBehaviour
    
      public void Back()
     {
+        SaveData.Instance.SavetoJson();
         SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
         SceneManager.LoadScene(scene.currentScene);
     }
