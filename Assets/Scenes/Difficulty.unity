@@ -1452,7 +1452,14 @@ MonoBehaviour:
   uiSource: {fileID: 779222898}
   sfxSource: {fileID: 334851462}
   ButtonClick: {fileID: 8300000, guid: df99823c398fe4f00835682a6b9f5217, type: 3}
+  switchCam: {fileID: 0}
   Shoot: {fileID: 8300000, guid: e730f0ecb16b04923b06a11d51d36132, type: 3}
+  Shoot1: {fileID: 0}
+  Shoot2: {fileID: 0}
+  Walking: {fileID: 0}
+  astoidExplode: {fileID: 0}
+  alarm: {fileID: 0}
+  jumpScare: {fileID: 0}
 --- !u!4 &487362921
 Transform:
   m_ObjectHideFlags: 0
@@ -2682,7 +2689,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Begin
+  m_text: Play Night 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2a080d8dc014f4b688828c6b7810b0ac, type: 2}
   m_sharedMaterial: {fileID: -7701577316371332898, guid: 2a080d8dc014f4b688828c6b7810b0ac, type: 2}
@@ -2709,8 +2716,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3136,10 +3143,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fb38ccbb71eb4c84b0707d05e3f4737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  BeginText: {fileID: 1207346091}
   animatronic1difficulty: 0
   animatronic2difficulty: 0
   animatronic3difficulty: 0
   animatronic4difficulty: 0
+  a1I: {fileID: 579151037}
+  a1D: {fileID: 1295651216}
+  a2I: {fileID: 793074064}
+  a2D: {fileID: 1664643125}
+  a3I: {fileID: 1816552471}
+  a3D: {fileID: 1509536162}
+  a4I: {fileID: 1830571140}
+  a4D: {fileID: 44393870}
 --- !u!4 &1496529611
 Transform:
   m_ObjectHideFlags: 0

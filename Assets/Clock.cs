@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Clock : MonoBehaviour
 {
     public event Action UpdateTime;
+    NightCode nightCode;
     public PlayerMovement player;
     public int seconds = 0;
     int prevTime = 0;
@@ -18,7 +19,8 @@ public class Clock : MonoBehaviour
     {
         player.paused = true;
         player.OpenShop();
-        a = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>(); 
+        a = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>();
+        nightCode = GameObject.Find("Night").GetComponent<NightCode>();
     }
 
     void Update()
@@ -64,6 +66,12 @@ public class Clock : MonoBehaviour
                 break;
             case >= 360 and < 420:
                 hour = hours[6];
+
+                if (nightCode.Night <= 5)
+                {
+                    nightCode.Night++;
+                }
+
                 SceneManager.LoadScene("6AM");
                 break;
         }
