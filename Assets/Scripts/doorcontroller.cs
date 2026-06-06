@@ -38,7 +38,6 @@ public class doorcontroller : MonoBehaviour
                 LeftDoor.transform.localPosition = new Vector3(LeftDoor.transform.localPosition.x, 20, LeftDoor.transform.localPosition.z);
                 leftDoorClosed = true;
                 Debug.Log("Mimic Closepot");
-                SoundManager.Instance.PlaySFX(SoundManager.Instance.door);
             }
             else
             {
@@ -46,7 +45,6 @@ public class doorcontroller : MonoBehaviour
                 LeftDoor.transform.localPosition = new Vector3(LeftDoor.transform.localPosition.x, 220, LeftDoor.transform.localPosition.z);
                 leftDoorClosed = false;
                 Debug.Log("Mimic Openpot");
-                SoundManager.Instance.PlaySFX(SoundManager.Instance.door);
 
             }
             
@@ -60,13 +58,11 @@ public class doorcontroller : MonoBehaviour
             {
                 RightDoor.transform.localPosition = new Vector3(RightDoor.transform.localPosition.x, 20, RightDoor.transform.localPosition.z);
                 rightDoorClosed = true;
-                SoundManager.Instance.PlaySFX(SoundManager.Instance.door);
             }
             else
             {
                 RightDoor.transform.localPosition = new Vector3(RightDoor.transform.localPosition.x, 220, RightDoor.transform.localPosition.z);
                 rightDoorClosed = false;
-                SoundManager.Instance.PlaySFX(SoundManager.Instance.door);
             }
 
             buttonID = 0;
@@ -78,13 +74,11 @@ public class doorcontroller : MonoBehaviour
             {
                 LeftVent.transform.localPosition = new Vector3(LeftVent.transform.localPosition.x, 20, LeftVent.transform.localPosition.z);
                 leftVentClosed = true;
-                SoundManager.Instance.PlaySFX(SoundManager.Instance.door);
             }
             else
             {
                 LeftVent.transform.localPosition = new Vector3(LeftVent.transform.localPosition.x, 220 , LeftVent.transform.localPosition.z);
                 leftVentClosed = false;
-                SoundManager.Instance.PlaySFX(SoundManager.Instance.door);
             }
 
             buttonID = 0;
@@ -96,13 +90,11 @@ public class doorcontroller : MonoBehaviour
             {
                 RightVent.transform.localPosition = new Vector3(RightVent.transform.localPosition.x, 20, RightVent.transform.localPosition.z);
                 rightVentClosed = true;
-                SoundManager.Instance.PlaySFX(SoundManager.Instance.door);
             }
             else
             {
                 RightVent.transform.localPosition = new Vector3(RightVent.transform.localPosition.x, 220, RightVent.transform.localPosition.z);
                 rightVentClosed = false;
-                SoundManager.Instance.PlaySFX(SoundManager.Instance.door);
             }
 
             buttonID = 0;
@@ -114,13 +106,11 @@ public class doorcontroller : MonoBehaviour
             {
                 ArnavCubthur.transform.localPosition = new Vector3(ArnavCubthur.transform.localPosition.x, 20, ArnavCubthur.transform.localPosition.z);
                 cubeClosed = true;
-                SoundManager.Instance.PlaySFX(SoundManager.Instance.door);
             }
             else
             {
                 ArnavCubthur.transform.localPosition = new Vector3(ArnavCubthur.transform.localPosition.x, 220, ArnavCubthur.transform.localPosition.z);
                 cubeClosed = false;
-                SoundManager.Instance.PlaySFX(SoundManager.Instance.door);
             }
 
             buttonID = 0;
