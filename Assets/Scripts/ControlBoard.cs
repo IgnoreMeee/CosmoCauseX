@@ -29,6 +29,7 @@ public class ControlBoard : MonoBehaviour
 
     if (movement.canMove && lookingAtChair)
     {
+        Debug.Log("i want to sit");
         EnterChair();
     }
     else if (!movement.canMove)
@@ -39,7 +40,7 @@ public class ControlBoard : MonoBehaviour
 
 void EnterChair()
 {
-    player.position = chair.position + Vector3.up * 0.8f;
+    player.position = chair.position + Vector3.up * 2f;
     movement.canMove = false;
 
     gun.SetActive(true);

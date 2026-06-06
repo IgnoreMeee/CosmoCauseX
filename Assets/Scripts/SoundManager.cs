@@ -11,6 +11,8 @@ public class SoundManager : MonoBehaviour
     [Header("UI Sound")]
     public AudioClip ButtonClick;
     public AudioClip switchCam;
+    public AudioClip SpendMoney;
+    public AudioClip NoSpendMoney;
 
     [Header("SFX Sound")]
     public AudioClip Shoot;
@@ -20,6 +22,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip astoidExplode;
     public AudioClip alarm;
     public AudioClip jumpScare;
+    
     
 
 
