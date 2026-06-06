@@ -16,6 +16,7 @@ public class TigerrockController : MonoBehaviour
     public doorcontroller doorControl;
     public GameObject animatronic;
     public GameObject animatronicCrawl;
+    public GameObject animatronicJumpscare;
     //public jumpscareController jumpscareControl;
 
     difficultycontroller a1;
@@ -23,6 +24,7 @@ public class TigerrockController : MonoBehaviour
     UnityEngine.Vector3 currentPos;
     UnityEngine.Vector3 targetPos;
     UnityEngine.Vector3 targetPos2;
+    UnityEngine.Vector3 jumpscareTarget;
 
     UnityEngine.Quaternion desiredRotation;
     UnityEngine.Quaternion desiredRotation2;
@@ -46,8 +48,10 @@ public class TigerrockController : MonoBehaviour
     {
         clock = clock.GetComponent<Clock>();
         currentPos = transform.position;
-        transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 71.26f); 
+        transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 78.7f); 
         transform.eulerAngles = new UnityEngine.Vector3(0f, -90f, 0f);
+        animatronicJumpscare.transform.localPosition = new UnityEngine.Vector3(-0.01f, -5.95f, 1.38f);
+        animatronicJumpscare.SetActive(false);
         a1 = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>(); 
         timePerChance = 21 - a1.animatronic3difficulty;
 
@@ -214,7 +218,7 @@ public class TigerrockController : MonoBehaviour
         switch (locationIndex)
         {
             case 0:
-                transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 71.26f); 
+                transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 78.7f); 
                 transform.eulerAngles = new UnityEngine.Vector3(0f, -90f, 0f);
                 crawling = false;
                 break;
@@ -424,10 +428,29 @@ public class TigerrockController : MonoBehaviour
     void jumpscare()
     {
         Debug.Log("Jumpscare!");
-        //jumpscareControl.killerAnimtronic = "Freddy";
-        //freddyJumpscare.Invoke();
         timeSinceJumpscare = clock.seconds;
-       
+        jumpscareTarget = new UnityEngine.Vector3(-0.01f, -3.89f, 1.38f);
+        animatronicJumpscare.SetActive(true);
+        SoundManager.Instance.PlaySFX(SoundManager.Instance.jumpScare);
+        StartCoroutine(Jumpscare(jumpscareTarget));  
+    }
+
+    private IEnumerator Jumpscare(UnityEngine.Vector3 target)
+    {
+        UnityEngine.Vector3 startPosition = animatronicJumpscare.transform.localPosition;
+        float elapsedTime = 0;
+        float duration = 0.2f;
+
+        while(elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            animatronicJumpscare.transform.localPosition = UnityEngine.Vector3.Lerp(startPosition, target, t);
+            yield return null;
+        }
+
+        animatronicJumpscare.transform.localPosition = target; 
     }
 }
 

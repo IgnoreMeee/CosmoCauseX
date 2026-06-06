@@ -903,7 +903,7 @@ MonoBehaviour:
   Walking: {fileID: 0}
   astoidExplode: {fileID: 0}
   alarm: {fileID: 0}
-  jumpScare: {fileID: 0}
+  jumpScare: {fileID: 8300000, guid: 92f500fffdd41b3409192a0df4538aeb, type: 3}
 --- !u!4 &1014478146
 Transform:
   m_ObjectHideFlags: 0
@@ -2222,6 +2222,11 @@ MonoBehaviour:
     point: 0
     UIVolume: 0
     SFXVolume: 0
+    max: 100
+    night: 6
+    lives: 3
+    Have1: 0
+    Have2: 0
 --- !u!4 &1954717417
 Transform:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class MimicController : MonoBehaviour
     public doorcontroller doorControl;
     public GameObject animatronic;
     public GameObject animatronicCrawl;
+    public GameObject animatronicJumpscare;
     //public jumpscareController jumpscareControl;
 
     difficultycontroller a1;
@@ -23,6 +24,7 @@ public class MimicController : MonoBehaviour
     UnityEngine.Vector3 currentPos;
     UnityEngine.Vector3 targetPos;
     UnityEngine.Vector3 targetPos2;
+    UnityEngine.Vector3 jumpscareTarget;
 
     UnityEngine.Quaternion desiredRotation;
     UnityEngine.Quaternion desiredRotation2;
@@ -48,6 +50,8 @@ public class MimicController : MonoBehaviour
         currentPos = transform.position;
         transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 70.7f); 
         transform.eulerAngles = new UnityEngine.Vector3(0f, -90f, 0f);
+        animatronicJumpscare.transform.localPosition = new UnityEngine.Vector3(0.33f, -5.14f, 0.61f);
+        animatronicJumpscare.SetActive(false);
         a1 = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>(); 
         timePerChance = 21 - a1.animatronic1difficulty;
 
@@ -424,10 +428,32 @@ public class MimicController : MonoBehaviour
     void jumpscare()
     {
         Debug.Log("Jumpscare!");
-        //jumpscareControl.killerAnimtronic = "Freddy";
-        //freddyJumpscare.Invoke();
         timeSinceJumpscare = clock.seconds;
+        jumpscareTarget = new UnityEngine.Vector3(0.33f, -4.32f, 0.61f);
+        animatronicJumpscare.SetActive(true);
+        SoundManager.Instance.PlaySFX(SoundManager.Instance.jumpScare);
+        StartCoroutine(Jumpscare(jumpscareTarget));
        
     }
+
+    private IEnumerator Jumpscare(UnityEngine.Vector3 target)
+    {
+        Debug.Log("running jumpscare");
+        UnityEngine.Vector3 startPosition = animatronicJumpscare.transform.localPosition;
+        float elapsedTime = 0;
+        float duration = 0.2f;
+
+        while(elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            float t = elapsedTime / duration;
+
+            animatronicJumpscare.transform.localPosition = UnityEngine.Vector3.Lerp(startPosition, target, t);
+            yield return null;
+        }
+
+        animatronicJumpscare.transform.localPosition = target; 
+    }
+
 }
 
