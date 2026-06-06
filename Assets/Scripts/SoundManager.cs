@@ -24,6 +24,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip astroidExplode;
     public AudioClip alarm;
     public AudioClip jumpScare;
+    public AudioClip door;
     
     [Header(" Background Ambience")]
     public AudioClip ambience;

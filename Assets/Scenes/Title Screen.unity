@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74ce535658590e4ab1f5aea51fa7532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Night: 5
+  Night: 1
 --- !u!4 &488042200
 Transform:
   m_ObjectHideFlags: 0
@@ -907,6 +907,7 @@ MonoBehaviour:
   astroidExplode: {fileID: 8300000, guid: 51275b58df14041d2a4435141001b21d, type: 3}
   alarm: {fileID: 0}
   jumpScare: {fileID: 8300000, guid: 92f500fffdd41b3409192a0df4538aeb, type: 3}
+  door: {fileID: 8300000, guid: 4c70ae7351b1c9d4c9c95785f32bae4f, type: 3}
   ambience: {fileID: 0}
 --- !u!4 &1014478146
 Transform:
@@ -2227,7 +2228,7 @@ MonoBehaviour:
     UIVolume: 0
     SFXVolume: 0
     max: 100
-    night: 6
+    night: 1
     lives: 3
     Have1: 0
     Have2: 0

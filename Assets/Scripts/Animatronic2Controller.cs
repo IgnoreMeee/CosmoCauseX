@@ -154,7 +154,7 @@ public class ShamrockController : MonoBehaviour
                 break;
             case 9:
                 previousIndex = 9;
-                if (doorControl.leftDoorClosed == false)
+                if (doorControl.leftVentClosed == false)
                 {
                     jumpscare();
                     locationIndex = 0;
@@ -199,7 +199,7 @@ public class ShamrockController : MonoBehaviour
                 break;
             case 14:
                 previousIndex = 14;
-                if (doorControl.rightDoorClosed == false)
+                if (doorControl.rightVentClosed == false)
                 {
                     jumpscare();
                     locationIndex = 0;
