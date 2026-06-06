@@ -55,9 +55,9 @@ public class Information
     public int point = 300;
     public float UIVolume;
     public float SFXVolume;
+    public float max = 100;
     public int night = 1;
     public int lives = 3;
-    public int equiped = 0;
     public bool Have1 = false;
     public bool Have2 = false;
 }

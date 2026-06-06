@@ -44,6 +44,7 @@ public class ShamrockController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         clock = clock.GetComponent<Clock>();
         currentPos = transform.position;
         transform.position = new UnityEngine.Vector3(17.57f, currentPos.y, 63.82f); 

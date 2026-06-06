@@ -29,10 +29,14 @@ public class power : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {   
-        Power = maxPower;
+        Debug.Log($"START: maxPower={maxPower}, Power={Power}");
+        maxPower = SaveData.Instance.info.max;
+        Power = SaveData.Instance.info.max;
+
         clock = clock.GetComponent<Clock>();
         doorControl = doorControl.GetComponent<doorcontroller>();
         audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
@@ -56,7 +60,7 @@ public class power : MonoBehaviour
         }
 
         doorPowerLoss();
-        powerPercent = (Power / maxPower) * 100;
+        powerPercent = Mathf.FloorToInt((Power / maxPower) * 100);
 
     }
 

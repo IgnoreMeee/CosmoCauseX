@@ -17,8 +17,9 @@ public class Clock : MonoBehaviour
 
     void Start()
     {
-        player.paused = true;
         player.OpenShop();
+        player.paused = true;
+
         a = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>();
         nightCode = GameObject.Find("Night").GetComponent<NightCode>();
     }
