@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
     [Header("Audio Sources")]
     public AudioSource uiSource;
     public AudioSource sfxSource;
+    public AudioSource background;
+
 
     [Header("UI Sound")]
     public AudioClip ButtonClick;
@@ -23,6 +25,10 @@ public class SoundManager : MonoBehaviour
     public AudioClip alarm;
     public AudioClip jumpScare;
     
+    [Header(" Background Ambience")]
+    public AudioClip ambience;
+
+
     
 
 
@@ -49,5 +55,21 @@ public class SoundManager : MonoBehaviour
     {
         sfxSource.PlayOneShot(clip);
     }
+
+    public void PlayLoopingBackground(AudioClip clip)
+    {
+        background.loop = true;
+        background.clip = clip;
+        background.Play();
+    }
+
+    public void StopLoopingBackground()
+    {
+        background.Stop();
+        background.loop = false;
+        background.clip = null;
+    }
 }
-        // SoundManagement.Instance.PlaySFX(SoundManagement.Instance.GalloShoot);
+
+// SoundManagement.Instance.PlaySFX(SoundManagement.Instance.GalloShoot);
+// SoundManager.Instance.PlayLoopingBackground( SoundManager.Instance.alarm);
