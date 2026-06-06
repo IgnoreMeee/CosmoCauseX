@@ -897,11 +897,13 @@ MonoBehaviour:
   sfxSource: {fileID: 1163137308}
   ButtonClick: {fileID: 8300000, guid: df99823c398fe4f00835682a6b9f5217, type: 3}
   switchCam: {fileID: 0}
+  SpendMoney: {fileID: 8300000, guid: 3e25fea42b3494b0c879b5e6a9cd6a94, type: 3}
+  NoSpendMoney: {fileID: 8300000, guid: e83911d99fd3849ada4afa71fabe4201, type: 3}
   Shoot: {fileID: 8300000, guid: 41f98bd7cc73d4dcabc17ccf42afd450, type: 3}
   Shoot1: {fileID: 8300000, guid: 7d1d92d77e0a04de8a7a75047438ddc5, type: 3}
   Shoot2: {fileID: 8300000, guid: b2a73136596a945d4b348f954b875dd7, type: 3}
   Walking: {fileID: 0}
-  astoidExplode: {fileID: 0}
+  astroidExplode: {fileID: 8300000, guid: 51275b58df14041d2a4435141001b21d, type: 3}
   alarm: {fileID: 0}
   jumpScare: {fileID: 8300000, guid: 92f500fffdd41b3409192a0df4538aeb, type: 3}
 --- !u!4 &1014478146

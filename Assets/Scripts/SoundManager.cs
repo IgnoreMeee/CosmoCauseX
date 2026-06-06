@@ -19,7 +19,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip Shoot1;
     public AudioClip Shoot2;
     public AudioClip Walking; //not sure but ye
-    public AudioClip astoidExplode;
+    public AudioClip astroidExplode;
     public AudioClip alarm;
     public AudioClip jumpScare;
     

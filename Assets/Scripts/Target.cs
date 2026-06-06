@@ -10,6 +10,7 @@ public class Target : MonoBehaviour
         if (health <= 0f)
         {
             Destroy(gameObject);
+            SoundManager.Instance.PlaySFX(SoundManager.Instance.astroidExplode);
             Debug.Log("i died");
         }
     }
