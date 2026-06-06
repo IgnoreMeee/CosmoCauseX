@@ -24,6 +24,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip astroidExplode;
     public AudioClip alarm;
     public AudioClip jumpScare;
+    public AudioClip door;
     
     [Header(" Background Ambience")]
     public AudioClip ambience;
@@ -71,5 +72,8 @@ public class SoundManager : MonoBehaviour
     }
 }
 
-// SoundManagement.Instance.PlaySFX(SoundManagement.Instance.GalloShoot);
-// SoundManager.Instance.PlayLoopingBackground( SoundManager.Instance.alarm);
+
+        // SoundManagement.Instance.PlaySFX(SoundManagement.Instance.GalloShoot);
+// SoundManager.Instance.PlayLoopingSFX(
+//     SoundManager.Instance.alarm
+// );

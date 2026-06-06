@@ -10,6 +10,7 @@ public class Astroid : MonoBehaviour
     public GameObject meteorexplosion;
     public Rigidbody AssRb;
     public GameObject lightObject;
+    public Alarm alarm;
     public livescontroller lives;
     float asteroidSpawnDelay = 2f;
     Clock clock;
@@ -32,6 +33,7 @@ public class Astroid : MonoBehaviour
             SummonAsteroids();
             StartCoroutine(SpawnAsteroid(asteroidSpawnDelay));
             lightObject.SetActive(true);
+            
             
             prevHour = clock.hour;
             Debug.Log(clock.hour + " " + prevHour);

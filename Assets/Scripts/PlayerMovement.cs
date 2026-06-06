@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public Button Resume;
     public Button Settings;
     public Button Exit;
+    public Alarm a;
     public float groundDrag;
     public bool paused = false;
     
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         PointSystem.Instance.point = SaveData.Instance.info.point;
+        SoundManager.Instance.PlayLoopingBackground( SoundManager.Instance.ambience);
 
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;

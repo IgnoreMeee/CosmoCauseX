@@ -8,6 +8,7 @@ public class Winscreen : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        SoundManager.Instance.StopLoopingBackground();
     }
 
     // Update is called once per frame
