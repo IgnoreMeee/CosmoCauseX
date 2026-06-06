@@ -65,7 +65,6 @@ public class ShopMenu : MonoBehaviour
         if (PointSystem.Instance.point >= 100)
         {
             Debug.Log("equiped");
-            SoundManager.Instance.PlayUI(SoundManager.Instance.SpendMoney);
             PointSystem.Instance.point -=100;
             SaveData.Instance.info.point = PointSystem.Instance.point;
             
@@ -74,8 +73,7 @@ public class ShopMenu : MonoBehaviour
             SaveData.Instance.info.Have1 = gun.OwnGun1;
 
         } else {
-            SoundManager.Instance.PlayUI(SoundManager.Instance.NoSpendMoney);
-            Debug.Log("I can't get this im broke");
+        Debug.Log("I can't get this im broke");
         }
     }
 
@@ -85,7 +83,6 @@ public class ShopMenu : MonoBehaviour
         if (PointSystem.Instance.point >= 150)
         {
             Debug.Log("equiped");
-            SoundManager.Instance.PlayUI(SoundManager.Instance.SpendMoney);
             PointSystem.Instance.point -=150;
             SaveData.Instance.info.point = PointSystem.Instance.point;
 
@@ -94,8 +91,7 @@ public class ShopMenu : MonoBehaviour
             SaveData.Instance.info.Have2 = gun.OwnGun2;
 
         } else {
-            SoundManager.Instance.PlayUI(SoundManager.Instance.NoSpendMoney);
-            Debug.Log("I can't get this im broke");
+        Debug.Log("I can't get this im broke");
         }
     }
     public void BatteryOne()
@@ -104,7 +100,6 @@ public class ShopMenu : MonoBehaviour
         if (PointSystem.Instance.point >= 150)
         {
             Debug.Log("i upgrade my battery");
-            SoundManager.Instance.PlayUI(SoundManager.Instance.SpendMoney);
             PointSystem.Instance.point -=150;
             SaveData.Instance.info.point = PointSystem.Instance.point;
 
@@ -114,8 +109,7 @@ public class ShopMenu : MonoBehaviour
             SaveData.Instance.info.max = p.maxPower;
 
         } else {
-            SoundManager.Instance.PlayUI(SoundManager.Instance.NoSpendMoney);
-            Debug.Log("I can't get this im broke");
+        Debug.Log("I can't get this im broke");
         }
     }
     public void BatteryTwo()
@@ -124,7 +118,6 @@ public class ShopMenu : MonoBehaviour
         if (PointSystem.Instance.point >= 200)
         {
             Debug.Log("i have the best battery now");
-            SoundManager.Instance.PlayUI(SoundManager.Instance.SpendMoney);
             PointSystem.Instance.point -=200;
             SaveData.Instance.info.point = PointSystem.Instance.point;
 
@@ -134,8 +127,7 @@ public class ShopMenu : MonoBehaviour
             SaveData.Instance.info.max = p.maxPower;
 
         } else {
-            SoundManager.Instance.PlayUI(SoundManager.Instance.NoSpendMoney);
-            Debug.Log("I can't get this im broke");
+        Debug.Log("I can't get this im broke");
         }
     }
 
