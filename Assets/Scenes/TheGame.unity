@@ -30820,7 +30820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun1
   player: {fileID: 953440033}
-  effect1: {fileID: 100004, guid: 084c6a87873fd6e4da7978a01aa18b34, type: 3}
+  effect1: {fileID: 100004, guid: b46890100828db6429ff69c322b45893, type: 3}
   muzzleFlash: {fileID: 1535196242}
   damage: 50
   range: 120
@@ -45750,7 +45750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gun2
   player: {fileID: 953440033}
-  effect2: {fileID: 100008, guid: 1ae4db7b36e51124b89d2b32303a7a0b, type: 3}
+  effect2: {fileID: 100008, guid: 1dbc518224e49f34095aab42fe05751a, type: 3}
   muzzleFlash: {fileID: 40723597}
   damage: 100
   range: 175
