@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SettingUI : MonoBehaviour
 {
     
-    public Slider UISlider, SFXSlider;
+    public Slider UISlider, SFXSlider, BackgroundSlider;
     SceneTracker scene;
     public Canvas TheGameCanvas, SettingCanvas;
     public GameObject Crosshair;
@@ -14,17 +14,19 @@ public class SettingUI : MonoBehaviour
     
     void Start()
     {
-        UISlider.value = SoundManager.Instance.uiSource.volume;
-        SFXSlider.value = SoundManager.Instance.sfxSource.volume;
+
 
         SoundManager.Instance.uiSource.volume = SaveData.Instance.info.UIVolume;
         SoundManager.Instance.sfxSource.volume = SaveData.Instance.info.SFXVolume;
+        SoundManager.Instance.background.volume = SaveData.Instance.info.BackgroundVolume;
 
         UISlider.value = SoundManager.Instance.uiSource.volume;
         SFXSlider.value = SoundManager.Instance.sfxSource.volume;
+        BackgroundSlider.value = SoundManager.Instance.background.volume;
         
         UISlider.onValueChanged.AddListener(SetUIVolume);
         SFXSlider.onValueChanged.AddListener(SetSFXVolume);
+        BackgroundSlider.onValueChanged.AddListener(SetBackgroundVolume);
         
 
         scene = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
@@ -46,6 +48,12 @@ public class SettingUI : MonoBehaviour
     {
         SoundManager.Instance.sfxSource.volume = volume;
         SaveData.Instance.info.SFXVolume = volume;
+    }
+
+     public void SetBackgroundVolume(float volume)
+    {
+        SoundManager.Instance.background.volume = volume;
+        SaveData.Instance.info.BackgroundVolume = volume;
     }
 
    

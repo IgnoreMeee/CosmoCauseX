@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         PointSystem.Instance.point = SaveData.Instance.info.point;
+        SoundManager.Instance.PlayLoopingBackground( SoundManager.Instance.ambience);
 
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;

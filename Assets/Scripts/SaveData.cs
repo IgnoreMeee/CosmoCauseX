@@ -55,6 +55,7 @@ public class Information
     public int point = 300;
     public float UIVolume;
     public float SFXVolume;
+    public float BackgroundVolume;
     public float max = 100;
     public int night = 1;
     public int lives = 3;

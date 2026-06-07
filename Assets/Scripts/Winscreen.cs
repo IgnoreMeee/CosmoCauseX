@@ -11,6 +11,7 @@ public class Winscreen : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         difficultyController = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>();
+        SoundManager.Instance.StopLoopingBackground();
     }
 
     // Update is called once per frame
