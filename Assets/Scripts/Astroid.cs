@@ -12,6 +12,8 @@ public class Astroid : MonoBehaviour
     public GameObject lightObject;
     public livescontroller lives;
     float asteroidSpawnDelay = 2f;
+    bool waveActive = false;
+    bool waveCleared = false;
     Clock clock;
     int prevTime;
     string prevHour = "12 AM";
@@ -22,46 +24,38 @@ public class Astroid : MonoBehaviour
     {
         clock = GameObject.Find("Clock").GetComponent<Clock>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (clock.hour != prevHour) {
-            Debug.Log("FUCKING KILL YOURSELF");
-            
+            Debug.Log("oh no oopsies!!!!");
+            waveActive = true;
+            waveCleared = false;
             SummonAsteroids();
             StartCoroutine(SpawnAsteroid(asteroidSpawnDelay));
             lightObject.SetActive(true);
-            
             prevHour = clock.hour;
             Debug.Log(clock.hour + " " + prevHour);
         }
-        
+    
         MoveAsteroids();
+        CheckWaveClear();
     }
-
     public void SummonAsteroids()
     {
         for (int i = 0; i < asteroids.Length; i++)
         {
             float randomYShift = Random.Range(-1f, 1f);
             float randomZShift = Random.Range(-9f, 9f);
-
             float AssY = Ass.transform.position.y + randomYShift;
             float AssZ = Ass.transform.position.z + randomZShift;
-           
             GameObject asteroid = Instantiate(Ass, new Vector3(Ass.transform.position.x, Ass.transform.position.y + randomYShift, Ass.transform.position.z + randomZShift), Quaternion.identity);
             asteroid.SetActive(false);
             GameObject meteor = Instantiate(meteortrail, new Vector3(Ass.transform.position.x, Ass.transform.position.y + randomYShift, Ass.transform.position.z + randomZShift), Quaternion.identity);
             meteor.transform.eulerAngles = new Vector3(0, -90, 0);
-
             meteor.transform.SetParent(asteroid.transform);
-
             asteroids[i] = asteroid;
-        }
-        
+        }        
     }
-
     public IEnumerator SpawnAsteroid(float delay)
     {
         for (int i = 0; i < asteroids.Length; i++)
@@ -69,19 +63,15 @@ public class Astroid : MonoBehaviour
             if (asteroids[i] == null) continue;
             if (asteroids[i].activeSelf) continue;
             yield return new WaitForSeconds(delay);
-            asteroids[i].SetActive(true);
-            
+            asteroids[i].SetActive(true);        
         }
     }
-
     public void MoveAsteroids()
     {
         for (int i = 0; i < asteroids.Length; i++)
         {
             if (asteroids[i] == null) continue;
-
             if (asteroids[i].activeSelf) {
-            
             if (asteroids[i].transform.position.x >= -108)
             {
                 GameObject boom = Instantiate(meteorexplosion, new Vector3(asteroids[i].transform.position.x, asteroids[i].transform.position.y, asteroids[i].transform.position.z), Quaternion.identity);
@@ -89,18 +79,42 @@ public class Astroid : MonoBehaviour
                 lives.lives -= 1;
                 SaveData.Instance.info.lives = lives.lives;
                 Destroy(asteroids[i]);
+                asteroids[i] = null;
                 StartCoroutine(deleteExplosion(booms[i]));
             } else
             {
                 asteroids[i].GetComponent<Rigidbody>().linearVelocity = new Vector3(4f, 0, 0);
             }
-
             }
         }
-
-
     }
+    public void OnAsteroidDestroyed(GameObject asteroid)
+    {
+        for (int i = 0; i < asteroids.Length; i++)
+        {
+            if (asteroids[i] == asteroid)
+            {
+                asteroids[i] = null;
+                break;
+            }
+        }
+    }
+    void CheckWaveClear()
+    {
+        if (!waveActive || waveCleared) return;
+        for (int i = 0; i < asteroids.Length; i++)
+        {
+            if (asteroids[i] != null)
+            {
 
+                return; 
+            }
+        }
+        waveCleared = true;
+        waveActive = false;
+        Debug.Log("ITS ALL GONE!!!");
+        lightObject.SetActive(false); 
+    }
     IEnumerator deleteExplosion(GameObject prefab)
     {
         float elapsedTime = 0;

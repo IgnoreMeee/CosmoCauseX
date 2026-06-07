@@ -10,7 +10,6 @@ public class ControlBoard : MonoBehaviour
     public GameObject lightObject;
 
     
-    
    
    void Update()
 {
@@ -37,23 +36,18 @@ public class ControlBoard : MonoBehaviour
         ExitChair();
     }
 }
-
 void EnterChair()
 {
     player.position = chair.position + Vector3.up * 2f;
     movement.canMove = false;
 
     gun.SetActive(true);
-    lightObject.SetActive(false);
 }
-
 void ExitChair()
 {
     player.position = chair.position + Vector3.right;
     movement.canMove = true;
     gun.SetActive(false);
 }
-
 }
 
-    
