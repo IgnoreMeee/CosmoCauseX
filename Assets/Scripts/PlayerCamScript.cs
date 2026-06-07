@@ -40,10 +40,14 @@ public class PlayerCamScript : MonoBehaviour
              }
         }
 
-        transform.position = cameraPos.transform.position;
 
         player.transform.rotation = Quaternion.Euler(0f, yRotation, 0f);
 
+    }
+    
+    void LateUpdate()
+    {
+        transform.position = cameraPos.transform.position;       
     }
 
     void MoveCamera()
