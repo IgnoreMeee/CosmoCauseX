@@ -1,10 +1,12 @@
 using UnityEngine;
 public class Target : MonoBehaviour
 {
+    InventoryScript inventory;
     float health = 30f;
     Astroid manager;
     void Start()
     {
+        inventory = FindFirstObjectByType<InventoryScript>();
         manager = FindFirstObjectByType<Astroid>();
     }
     public void TakeDamage(float amt)
