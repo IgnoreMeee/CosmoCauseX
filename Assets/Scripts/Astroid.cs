@@ -73,7 +73,7 @@ public class Astroid : MonoBehaviour
             
         }
     }
-
+// added this so the thing (alarm) stops when asteroids are all done
     public void MoveAsteroids()
     {
         for (int i = 0; i < asteroids.Length; i++)
@@ -99,6 +99,34 @@ public class Astroid : MonoBehaviour
         }
 
 
+    }
+
+    public void OnAsteroidDestroyed(GameObject asteroid)
+    {
+        for (int i = 0; i < asteroids.Length; i++)
+        {
+            if (asteroids[i] == asteroid)
+            {
+                asteroids[i] = null;
+                break;
+            }
+        }
+    }
+    void CheckWaveClear()
+    {
+        if (!waveActive || waveCleared) return;
+        for (int i = 0; i < asteroids.Length; i++)
+        {
+            if (asteroids[i] != null)
+            {
+
+                return; 
+            }
+        }
+        waveCleared = true;
+        waveActive = false;
+        Debug.Log("ITS ALL GONE!!!");
+        lightObject.SetActive(false); 
     }
 
     IEnumerator deleteExplosion(GameObject prefab)
