@@ -9,6 +9,7 @@ public class InitCode : MonoBehaviour
     {
         scene = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
         scene.currentScene = SceneManager.GetActiveScene().name;
+        
     }
 
     // Update is called once per frame

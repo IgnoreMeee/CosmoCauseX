@@ -21,6 +21,7 @@ public class Clock : MonoBehaviour
         player.paused = true;
         a = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>();
         nightCode = GameObject.Find("Night").GetComponent<NightCode>();
+        point = PointSystem.Instance;   
     }
 
     void Update()
@@ -74,6 +75,7 @@ public class Clock : MonoBehaviour
                     nightCode.Night++;
                     SaveData.Instance.info.night = nightCode.Night;
                     
+                    
                     SaveData.Instance.SavetoJson();
                     Debug.Log("save");
                 }
@@ -87,8 +89,8 @@ public class Clock : MonoBehaviour
         if (seconds % 60 == 0 && seconds != 0 && seconds != lastPointSecond)
         {
             lastPointSecond = seconds;
-            point.point += 10;
-            PointSystem.Instance.point += a.animatronic1difficulty + a.animatronic2difficulty + a.animatronic3difficulty + a.animatronic4difficulty;
+            // point.point += 10;
+            PointSystem.Instance.point += a.animatronic1difficulty + a.animatronic2difficulty + a.animatronic3difficulty;
             SaveData.Instance.info.point = PointSystem.Instance.point;
             SaveData.Instance.SavetoJson();
             Debug.Log("saved");

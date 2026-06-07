@@ -19,6 +19,7 @@ public class Target : MonoBehaviour
             SoundManager.Instance.PlaySFX(SoundManager.Instance.astroidExplode);
             Destroy(gameObject);
             Debug.Log("i died");
+            if (inventory.meteorFragments < 9) StartCoroutine(inventory.AddMeteorFrag(2f));
         }
     }
 }
