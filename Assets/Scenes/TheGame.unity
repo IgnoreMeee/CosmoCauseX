@@ -8767,7 +8767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b13bae84f8dd4c88ba96b8a245c0802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Target
-  inventory: {fileID: 0}
 --- !u!64 &286026592
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9901,6 +9900,7 @@ MonoBehaviour:
   orientation: {fileID: 1738998513}
   cameraPos: {fileID: 1455376997}
   player: {fileID: 4743243}
+  playerMovement: {fileID: 953440033}
 --- !u!64 &330585549
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16246,7 +16246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b13bae84f8dd4c88ba96b8a245c0802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Target
-  inventory: {fileID: 0}
 --- !u!1 &648995172 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -516098083770646512, guid: 7bc95a02d898ea044924a51079be2bfb, type: 3}

@@ -8,6 +8,7 @@ public class Clock : MonoBehaviour
     NightCode nightCode;
     public PointSystem point;
     public PlayerMovement player;
+    public PointSystem pointSystem;
     public int seconds = 0;
     int prevTime = 0;
     string[] hours = {"12 AM", "1 AM", "2 AM", "3 AM", "4 AM", "5 AM", "6 AM"};
@@ -21,6 +22,8 @@ public class Clock : MonoBehaviour
         player.paused = true;
         a = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>();
         nightCode = GameObject.Find("Night").GetComponent<NightCode>();
+        pointSystem = GameObject.Find("PointSystem").GetComponent<PointSystem>();
+
         point = PointSystem.Instance;   
     }
 
@@ -32,8 +35,24 @@ public class Clock : MonoBehaviour
 
         UpdateTimeGUI();
 
-        if(Input.GetKeyDown(KeyCode.Q))
-            seconds = 359;
+        if(Input.GetKeyDown(KeyCode.Q)){
+            if(seconds < 60)
+            {
+                seconds = 59;
+            }else if(seconds < 120)
+            {
+                seconds = 119;
+            }else if(seconds < 180)
+            {
+                seconds = 179;
+            }else if(seconds < 240)
+            {
+                seconds = 239;
+            }else if(seconds < 300)
+            {
+                seconds = 299;
+            }
+    }
     }
 
     void Timer()

@@ -9,6 +9,7 @@ public class PlayerCamScript : MonoBehaviour
     public Transform orientation;
     public GameObject cameraPos;
     public GameObject player;
+    public PlayerMovement playerMovement;
 
     float xRotation;
     float yRotation;
@@ -24,6 +25,7 @@ public class PlayerCamScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playerMovement.paused) return;
         MoveCamera();
         if (Input.GetKeyDown(KeyCode.E))
         {
@@ -37,17 +39,18 @@ public class PlayerCamScript : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
                 mouseLocked = true;
+                
              }
         }
 
-
+        
         player.transform.rotation = Quaternion.Euler(0f, yRotation, 0f);
 
     }
     
     void LateUpdate()
     {
-        transform.position = cameraPos.transform.position;       
+        transform.position = cameraPos.transform.position; 
     }
 
     void MoveCamera()
