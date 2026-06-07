@@ -7,6 +7,9 @@ public class Play : MonoBehaviour
     void Start()
     {
         SaveData.Instance.LoadJson();
+        // if (NightCode.Instance != null)
+        //     NightCode.Instance.RefreshFromSave();
+
         scene = GameObject.Find("SceneTracker").GetComponent<SceneTracker>();
         
 
@@ -27,6 +30,14 @@ public class Play : MonoBehaviour
     public void PressStart()
     {
         SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
+        SaveData.Instance.LoadJson();
+
+        // if (NightCode.Instance != null)
+        //     NightCode.Instance.RefreshFromSave();
+
+        // if (difficultycontroller.instance != null)
+        //     difficultycontroller.instance.SyncFromNight();
+
         SceneManager.LoadScene("Difficulty");
     }
     public void Setting()

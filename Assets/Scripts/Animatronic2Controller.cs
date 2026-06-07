@@ -18,6 +18,7 @@ public class ShamrockController : MonoBehaviour
     public GameObject animatronicCrawl;
     public GameObject animatronicJumpscare;
     //public jumpscareController jumpscareControl;
+    InventoryScript inventory;
 
     difficultycontroller a1;
     public event Action freddyJumpscare;
@@ -54,6 +55,7 @@ public class ShamrockController : MonoBehaviour
         animatronicJumpscare.SetActive(false);
         a1 = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>(); 
         timePerChance = 21 - a1.animatronic2difficulty;
+        inventory = GameObject.Find("Inventory").GetComponent<InventoryScript>();
 
         if(a1.animatronic2difficulty > 18)
         {
@@ -146,6 +148,7 @@ public class ShamrockController : MonoBehaviour
                 } else
                 {
                     locationIndex = 0;
+                    if (inventory.ExoticButters < 9) StartCoroutine(inventory.AddExoticButter(2f));
                 }
                 break;
             case 8:
@@ -171,6 +174,7 @@ public class ShamrockController : MonoBehaviour
                         locationIndex = 0;
                         Debug.Log("Animatronic Retreating!");
                     }
+                    if (inventory.ExoticButters < 9) StartCoroutine(inventory.AddExoticButter(2f));
                     
                 }
                 break;
@@ -191,6 +195,7 @@ public class ShamrockController : MonoBehaviour
                 } else
                 {
                     locationIndex = 0;
+                    if (inventory.ExoticButters < 9) StartCoroutine(inventory.AddExoticButter(2f));
                 }
             break;
             case 13:
@@ -206,6 +211,7 @@ public class ShamrockController : MonoBehaviour
                 } else
                 {
                     locationIndex = 0;
+                    if (inventory.ExoticButters < 9) StartCoroutine(inventory.AddExoticButter(2f));
                 }
             break;
     

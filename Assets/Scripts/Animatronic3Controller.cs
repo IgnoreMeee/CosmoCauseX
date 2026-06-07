@@ -18,6 +18,7 @@ public class TigerrockController : MonoBehaviour
     public GameObject animatronicCrawl;
     public GameObject animatronicJumpscare;
     //public jumpscareController jumpscareControl;
+    InventoryScript inventory;
 
     difficultycontroller a1;
     public event Action freddyJumpscare;
@@ -54,6 +55,7 @@ public class TigerrockController : MonoBehaviour
         animatronicJumpscare.SetActive(false);
         a1 = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>(); 
         timePerChance = 21 - a1.animatronic3difficulty;
+        inventory = GameObject.Find("Inventory").GetComponent<InventoryScript>();
 
         if(a1.animatronic3difficulty > 18)
         {
@@ -146,6 +148,7 @@ public class TigerrockController : MonoBehaviour
                 } else
                 {
                     locationIndex = 0;
+                    if (inventory.ExoticButters < 9) StartCoroutine(inventory.AddExoticButter(2f));
                 }
                 break;
             case 8:
@@ -171,6 +174,12 @@ public class TigerrockController : MonoBehaviour
                         locationIndex = 0;
                         Debug.Log("Animatronic Retreating!");
                     }
+                    if (inventory.ExoticButters < 9) StartCoroutine(inventory.AddExoticButter(2f));
+
+
+
+
+
                     
                 }
                 break;
@@ -191,6 +200,7 @@ public class TigerrockController : MonoBehaviour
                 } else
                 {
                     locationIndex = 0;
+                    if (inventory.ExoticButters < 9) StartCoroutine(inventory.AddExoticButter(2f));
                 }
             break;
             case 13:
@@ -206,6 +216,7 @@ public class TigerrockController : MonoBehaviour
                 } else
                 {
                     locationIndex = 0;
+                    if (inventory.ExoticButters < 9) StartCoroutine(inventory.AddExoticButter(2f));
                 }
             break;
     

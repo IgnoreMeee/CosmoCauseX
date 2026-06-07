@@ -3,7 +3,9 @@ using UnityEngine;
 public class NightCode : MonoBehaviour
 {
     public static NightCode Instance;
-    public int Night = 1;
+    [HideInInspector]
+    public int Night;
+
     void Awake()
         {
             if (Instance == null)
@@ -19,12 +21,24 @@ public class NightCode : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Night = SaveData.Instance.info.night;
+        // RefreshFromSave();
+        
+        
+        
     }
+
+    // public void RefreshFromSave()
+    // {
+    //     if (SaveData.Instance == null)
+    //         return;
+
+    //     
+    // }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Night = SaveData.Instance.info.night;
+        Debug.Log("Night from title screen " + Night);
     }
 }

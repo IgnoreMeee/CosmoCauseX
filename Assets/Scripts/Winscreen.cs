@@ -3,11 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class Winscreen : MonoBehaviour
 {
+    difficultycontroller difficultyController;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        difficultyController = GameObject.Find("DifficultyController").GetComponent<difficultycontroller>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,8 @@ public class Winscreen : MonoBehaviour
     public void ReturntoMenu()
     {
         SoundManager.Instance.PlayUI(SoundManager.Instance.ButtonClick);
+        Destroy(GameObject.Find("DifficultyController"));
         SceneManager.LoadScene("Title Screen");
+        
     }
 }

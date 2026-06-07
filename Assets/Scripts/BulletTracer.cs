@@ -4,6 +4,12 @@ public class BulletTracer : MonoBehaviour
 {
     public Vector3 target;
     public float speed = 100f;
+    public InventoryScript inventory;
+
+    void Start()
+    {
+        inventory = GameObject.Find("Inventory").GetComponent<InventoryScript>();
+    }
 
     void Update()
     {
@@ -15,6 +21,7 @@ public class BulletTracer : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target) < 0.1f)
         {
+            
             Destroy(gameObject);
         }
     }

@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class difficultycontroller : MonoBehaviour
 {
     public static difficultycontroller instance;
-    NightCode nightCode;
+    NightCode nightCode; 
+
     public TextMeshProUGUI BeginText;
     public int animatronic1difficulty = 0;
     public int animatronic2difficulty = 0;
     public int animatronic3difficulty = 0;
-    public int animatronic4difficulty = 0;
+    // public int animatronic4difficulty = 0;
 
-    public GameObject a1I, a1D, a2I, a2D, a3I, a3D, a4I, a4D;
+    public GameObject a1I, a1D, a2I, a2D, a3I, a3D;
 
     void Awake() {
         if (instance != null)
@@ -32,10 +33,6 @@ public class difficultycontroller : MonoBehaviour
     void Start()
     {
         nightCode = GameObject.Find("Night").GetComponent<NightCode>();
-        setValues();
-
-        if (nightCode.Night <= 5) HideButtons();
-        UpdateButton();
     }
 
     
@@ -44,6 +41,13 @@ public class difficultycontroller : MonoBehaviour
     void Update()
     {
         
+        setValues();
+
+        if (nightCode.Night <= 5) {
+            HideButtons();
+            Debug.Log(nightCode.Night);
+        } 
+        UpdateButton();
     }
 
     public void increaseA1()
@@ -94,21 +98,21 @@ public class difficultycontroller : MonoBehaviour
         }
     }
 
-    public void increaseA4()
-    {
-        if (nightCode.Night > 5) {
-        if(animatronic4difficulty < 20)
-            animatronic4difficulty++;
-        }
-    }
+    // public void increaseA4()
+    // {
+    //     if (nightCode.Night > 5) {
+    //     if(animatronic4difficulty < 20)
+    //         animatronic4difficulty++;
+    //     }
+    // }
 
-    public void decreaseA4()
-    {
-        if (nightCode.Night > 5) {
-        if(animatronic4difficulty > 0)
-        animatronic4difficulty--;
-        }
-    }
+    // public void decreaseA4()
+    // {
+    //     if (nightCode.Night > 5) {
+    //     if(animatronic4difficulty > 0)
+    //     animatronic4difficulty--;
+    //     }
+    // }
 
     public void setValues()
     {
@@ -117,7 +121,7 @@ public class difficultycontroller : MonoBehaviour
         animatronic1difficulty = nightCode.Night * 4;
         animatronic2difficulty = nightCode.Night * 4;
         animatronic3difficulty = nightCode.Night * 4;
-        animatronic4difficulty = nightCode.Night * 4;
+        // animatronic4difficulty = nightCode.Night * 4;
     }
 
     public void HideButtons()
@@ -128,13 +132,14 @@ public class difficultycontroller : MonoBehaviour
         a2D.SetActive(false);
         a3I.SetActive(false);
         a3D.SetActive(false);
-        a4I.SetActive(false);
-        a4D.SetActive(false);
+        // a4I.SetActive(false);
+        // a4D.SetActive(false);
         
     }
 
     public void UpdateButton()
     {
         BeginText.text = "Play Night " + nightCode.Night;
+        Debug.Log("Night " + nightCode.Night);
     }
 }

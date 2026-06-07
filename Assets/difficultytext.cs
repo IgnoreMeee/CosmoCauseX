@@ -6,7 +6,7 @@ public class difficultytext : MonoBehaviour
     public TextMeshProUGUI a1text;
     public TextMeshProUGUI a2text;
     public TextMeshProUGUI a3text;
-    public TextMeshProUGUI a4text;
+    // public TextMeshProUGUI a4text;
     public difficultycontroller DifficultyController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,6 +21,6 @@ public class difficultytext : MonoBehaviour
         a1text.text = DifficultyController.animatronic1difficulty.ToString();
         a2text.text = DifficultyController.animatronic2difficulty.ToString();
         a3text.text = DifficultyController.animatronic3difficulty.ToString();
-        a4text.text = DifficultyController.animatronic4difficulty.ToString();
+        // a4text.text = DifficultyController.animatronic4difficulty.ToString();
     }
 }
