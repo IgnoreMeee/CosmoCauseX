@@ -3,8 +3,8 @@ using UnityEngine;
 public class PlayerCamScript : MonoBehaviour
 {
 
-    public float sensX;
-    public float sensY;
+    public float sensX = 0.5;
+    public float sensY = 0.5;
 
     public Transform orientation;
     public GameObject cameraPos;
@@ -48,8 +48,8 @@ public class PlayerCamScript : MonoBehaviour
 
     void MoveCamera()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX * 75;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY * 75;
+        float mouseX = Input.GetAxisRaw("Mouse X") * sensX;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * sensY;
 
         yRotation += mouseX;
         xRotation -= mouseY;
