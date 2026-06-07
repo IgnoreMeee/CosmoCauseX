@@ -3,8 +3,8 @@ using UnityEngine;
 public class PlayerCamScript : MonoBehaviour
 {
 
-    public float sensX = 0.5;
-    public float sensY = 0.5;
+    public float sensX = 0.5f;
+    public float sensY = 0.5f;
 
     public Transform orientation;
     public GameObject cameraPos;
