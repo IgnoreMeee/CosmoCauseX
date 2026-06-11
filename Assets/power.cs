@@ -8,6 +8,7 @@ public class power : MonoBehaviour
     public Clock clock;
     public doorcontroller doorControl;
     public AudioSource audioSource;
+    public MimicController mimicController;
 
 
     float prevSecond = 0;
@@ -25,6 +26,7 @@ public class power : MonoBehaviour
     public float powerPercent = 100;
 
     bool outageSoundPlayed = false;
+    bool jumpscared = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -46,11 +48,18 @@ public class power : MonoBehaviour
         {
             Power = 0;
 
-            if(outageSoundPlayed == false)
+            /* if(outageSoundPlayed == false)
             {
                 audioSource.Play();
                 outageSoundPlayed = true;
+            } */
+
+            if(jumpscared == false)
+            {
+                mimicController.jumpscare();
+                jumpscared = true;
             }
+            
 
 
 

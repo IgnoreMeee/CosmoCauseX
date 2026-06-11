@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class livescontroller : MonoBehaviour
 {
@@ -27,11 +28,14 @@ public class livescontroller : MonoBehaviour
             life2.SetActive(true);
             life3.SetActive(false);
         }
-        else
+        else if(lives == 1)
         {
             life1.SetActive(true);
             life2.SetActive(false);
             life3.SetActive(false);
+        }else if(lives == 0)
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 }

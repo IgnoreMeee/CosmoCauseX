@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
     private void MyInput()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
-        Debug.Log("horizontal input");
+        //Debug.Log("horizontal input");
         verticalInput = Input.GetAxisRaw("Vertical");
 
         if(Input.GetKey(KeyCode.Space) && onGround && jumpTimer >= jumpCooldown)

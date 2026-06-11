@@ -45,7 +45,7 @@ public class SaveData : MonoBehaviour
         string infoData = System.IO.File.ReadAllText(filePath);
 
         info = JsonUtility.FromJson<Information>(infoData);
-        Debug.Log("Load");
+        //Debug.Log("Load");
     }
 }
 

@@ -7,6 +7,7 @@ public class PlayerCamScript : MonoBehaviour
     public float sensY = 0.5f;
 
     public Transform orientation;
+    public PlayerMovement playerMovement;
     public GameObject cameraPos;
     public GameObject player;
 
@@ -24,6 +25,9 @@ public class PlayerCamScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playerMovement.paused)
+            return;
+
         MoveCamera();
         if (Input.GetKeyDown(KeyCode.E))
         {

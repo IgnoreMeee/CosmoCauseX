@@ -92,7 +92,9 @@ public class CamController : MonoBehaviour
 
     void SwitchTexture()
     {
+        Debug.Log(currentCam);
         currentCam.depth = 2;
+
         for (int i = 0; i < camList.Length; i++)
         {
             if (camList[i] != currentCam)

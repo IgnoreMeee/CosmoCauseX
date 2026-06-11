@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.Design;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public GameObject VentButtonLeft;
     public GameObject VentButtonRight;
     public doorcontroller doorController;
+    public GameObject clickindicator;
 
     //declaring cameras
     public GameObject Camera1;
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
         //range of button hit
         ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.5f));
         Touch();
+        Check();
 
     }
 
@@ -52,8 +55,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
 
-            if (Physics.Raycast(ray, out hit, 30f))
+            if (Physics.Raycast(ray, out hit, 8f))
             {
+                
                 //Door Opening / Closing
                 if (hit.collider.gameObject.CompareTag("ButtonLeft"))
                 {
@@ -137,6 +141,7 @@ public class PlayerController : MonoBehaviour
                 {
                     GameObject CamController = GameObject.Find("CamController");
                     CamController camcontroller = CamController.GetComponent<CamController>();
+                    //Debug.Log("switching to dining cam");
                     camcontroller.currentCam = camcontroller.camList[1];
                 }
 
@@ -150,5 +155,88 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    public void Check()
+    {
+        if (Physics.Raycast(ray, out hit, 8f))
+        {
+            if (hit.collider.gameObject.CompareTag("ButtonLeft"))
+                {
+                    clickindicator.SetActive(true);
+                }
+
+            else if (hit.collider.gameObject.CompareTag("ButtonRight"))
+                {
+                   clickindicator.SetActive(true);
+                }
+
+            else if (hit.collider.gameObject.CompareTag("VentLeft"))
+                {
+                    clickindicator.SetActive(true);
+                }
+
+            else if (hit.collider.gameObject.CompareTag("VentRight"))
+                {
+                   clickindicator.SetActive(true);
+                }
+
+                // Camera Switching
+            else if (hit.collider.gameObject.CompareTag("Camera1"))
+                {
+                    clickindicator.SetActive(true);
+                }
+
+            else if (hit.collider.gameObject.CompareTag("Camera2"))
+                {
+                    clickindicator.SetActive(true);
+                }
+
+            else if (hit.collider.gameObject.CompareTag("Camera3"))
+                {
+                    clickindicator.SetActive(true);
+                }
+
+            else if (hit.collider.gameObject.CompareTag("Camera4"))
+                {
+                    clickindicator.SetActive(true);
+                }
+
+            else if (hit.collider.gameObject.CompareTag("Camera5"))
+                {
+                    clickindicator.SetActive(true);
+                }
+
+            else if (hit.collider.gameObject.CompareTag("Camera6"))
+                {
+                    clickindicator.SetActive(true);
+                }
+
+            else if (hit.collider.gameObject.CompareTag("Camera7"))
+                {
+                    clickindicator.SetActive(true);
+                }
+
+            else if (hit.collider.gameObject.CompareTag("CameraA"))
+                {
+                    clickindicator.SetActive(true);
+                }
+
+            else if (hit.collider.gameObject.CompareTag("CameraB"))
+                {
+                    clickindicator.SetActive(true);
+                }
+            else
+            {
+                clickindicator.SetActive(false);
+            }
+                
+        }
+        else
+        {
+            clickindicator.SetActive(false);
+        }
+    }
+
+
 }
 

@@ -140,6 +140,6 @@ public class difficultycontroller : MonoBehaviour
     public void UpdateButton()
     {
         BeginText.text = "Play Night " + nightCode.Night;
-        Debug.Log("Night " + nightCode.Night);
+        //Debug.Log("Night " + nightCode.Night);
     }
 }

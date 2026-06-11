@@ -39,6 +39,6 @@ public class NightCode : MonoBehaviour
     void Update()
     {
         Night = SaveData.Instance.info.night;
-        Debug.Log("Night from title screen " + Night);
+        //Debug.Log("Night from title screen " + Night);
     }
 }

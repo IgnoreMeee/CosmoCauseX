@@ -432,7 +432,7 @@ public class MimicController : MonoBehaviour
         return result;
     }
 
-    void jumpscare()
+    public void jumpscare()
     {
         Debug.Log("Jumpscare!");
         timeSinceJumpscare = clock.seconds;
